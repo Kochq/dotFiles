@@ -44,5 +44,10 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 -- Copilot remap
-vim.keymap.set('i', '<C-e>', 'copilot#Accept("<CR>")', { expr = true, replace_keycodes = false })
-
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true
+vim.g.copilot_tab_fallback = ""
+vim.keymap.set('i', '<C-e>', 'copilot#Accept("<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
