@@ -1,5 +1,3 @@
-require("kochq.bigKeymaps")
-
 vim.g.mapleader = " "
 
 -- Quit
@@ -51,3 +49,5 @@ vim.keymap.set('i', '<C-e>', 'copilot#Accept("<CR>")', {
   expr = true,
   replace_keycodes = false
 })
+
+require("kochq.bigKeymaps")
