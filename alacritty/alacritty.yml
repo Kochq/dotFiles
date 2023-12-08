@@ -1,0 +1,41 @@
+# Colors (One Dark - https://github.com/atom/atom/tree/master/packages/one-dark-syntax)
+colors:
+  primary:
+    background: '#000000'
+    foreground: '#abb2bf'
+  cursor:
+    text:       CellBackground
+    cursor:     '#528bff' # syntax-cursor-color
+  selection:
+    text:       CellForeground
+    background: '#3e4451' # syntax-selection-color
+  normal:
+    black:      '#5c6370' # mono-3
+    red:        '#e06c75' # red 1
+    green:      '#98c379'
+    yellow:     '#e5c07b' # orange 2
+    blue:       '#61afef'
+    magenta:    '#c678dd'
+    cyan:       '#56b6c2'
+    white:      '#828997' # mono-2
+#Change the font
+font: 
+  normal:
+    family: CaskaydiaCove Nerd Font Mono 
+    style: Book
+  bold:
+    family: CaskaydiaCove Nerd Font Mono
+    style: Bold
+  italic:
+    family: CaskaydiaCove Nerd Font Mono
+    style: Italic
+  bold_italic:
+    family: CaskaydiaCove Nerd Font Mono
+    style: BoldItalic 
+  #Font size
+  size: 13
+
+
+#Terminal opacity
+window:
+  opacity: 0.80
