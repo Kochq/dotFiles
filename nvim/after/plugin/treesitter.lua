@@ -19,4 +19,8 @@ require 'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  -- Needed bucause treesitter highlight doesn't work with automatically with php
+  indent = {
+    enable = true,
+  },
 }
