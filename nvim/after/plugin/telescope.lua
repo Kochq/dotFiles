@@ -1,6 +1,20 @@
+-- This is your opts table
+require("telescope").setup {
+  extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+        -- even more opts
+      }
+    }
+  }
+}
+-- To get ui-select loaded and working with telescope, you need to call
+-- load_extension, somewhere after setup function:
+require("telescope").load_extension("ui-select")
+
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>fs', builtin.find_files, {})
 vim.keymap.set('n', '<leader>gs', builtin.git_files, {})
-vim.keymap.set('n', '<leader>ws', function()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") })
-end)
+vim.keymap.set('n', '<leader>bf', builtin.buffers, {})
+vim.keymap.set('n', '<leader>ws', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>+', builtin.spell_suggest, {})
