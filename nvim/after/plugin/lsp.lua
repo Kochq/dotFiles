@@ -23,7 +23,6 @@ require('mason-lspconfig').setup({
         'intelephense',
         'clangd',
         'pyright',
-        'html',
     },
     handlers = {
         lsp_zero.default_setup,
