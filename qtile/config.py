@@ -97,7 +97,7 @@ keys = [
     Key([mod], "F6", lazy.spawn("brightnessctl s 5%+")),
     Key([mod], "F5", lazy.spawn("brightnessctl s 5%-")),
     #Screens control
-    Key([mod], "F1", lazy.next_screen(), desc='Next monitor'),
+    Key([], "F1", lazy.next_screen(), desc='Next monitor'),
 ]
 
 #groups = [Group(i) for i in "123456789"]
