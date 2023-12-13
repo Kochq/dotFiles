@@ -59,5 +59,6 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use("terrortylor/nvim-comment")
     -- Transparent for gitsigns
     use("xiyaowong/nvim-transparent")
-
+    -- Markdown preview
+    use("iamcco/markdown-preview.nvim")
 end)
