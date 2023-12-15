@@ -660,6 +660,7 @@ wmname = "LG3D"
 autostart = [
     "feh --bg-fill /home/koch/Pictures/Wallpapers/onedark.jpg",
     "picom --no-vsync --fade-in-step=1 --fade-out-step=1 --fade-delta=0 &",
+    "./~/dotfiles/utilityScripts/MouseSettings.sh",
 ]
 
 for a in autostart:
