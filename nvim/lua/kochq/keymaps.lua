@@ -2,6 +2,8 @@ vim.g.mapleader = " "
 
 -- Quit
 vim.keymap.set("n", "<leader>q", ":q<CR>")
+-- Quit without saving
+vim.keymap.set("n", "<leader>Q", ":q!<CR>")
 
 -- Files
 vim.keymap.set("n", "<leader>n", ":Ex<CR>")
@@ -24,7 +26,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- Q
-vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "Q", "@q")
 
 -- Format
 vim.keymap.set("n", "<leader>fo", vim.lsp.buf.format)
