@@ -1,0 +1,2 @@
+mv /etc/X11/xorg.conf.d/10-nvidia-drm-outputclass.confu /etc/X11/xorg.conf.d/10-nvidia-drm-outputclass.conf
+mv /etc/X11/estoes /etc/X11/xorg.conf
