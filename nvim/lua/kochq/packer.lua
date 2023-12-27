@@ -51,8 +51,8 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use("nvim-treesitter/nvim-treesitter-context")
     -- lluvia | <leader>mr
     use("eandrju/cellular-automaton.nvim")
-    -- copilot | <C-e>
-    use("github/copilot.vim")
+    -- -- copilot | <C-e>
+    -- use("github/copilot.vim")
     -- Autocompletion () ""
     use("jiangmiao/auto-pairs")
     -- Comment toggler | <leader>gc
