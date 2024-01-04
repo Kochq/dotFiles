@@ -1,0 +1,43 @@
+[colors.cursor]
+cursor = "#528bff"
+text = "CellBackground"
+
+[colors.normal]
+black = "#5c6370"
+blue = "#61afef"
+cyan = "#56b6c2"
+green = "#98c379"
+magenta = "#c678dd"
+red = "#e06c75"
+white = "#828997"
+yellow = "#e5c07b"
+
+[colors.primary]
+background = "#000000"
+foreground = "#abb2bf"
+
+[colors.selection]
+background = "#3e4451"
+text = "CellForeground"
+
+[font]
+size = 12.5
+
+[font.bold]
+family = "CaskaydiaCove Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "CaskaydiaCove Nerd Font Mono"
+style = "BoldItalic"
+
+[font.italic]
+family = "CaskaydiaCove Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "CaskaydiaCove Nerd Font Mono"
+style = "Book"
+
+[window]
+opacity = 0.8
