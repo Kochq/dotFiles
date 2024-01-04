@@ -37,12 +37,20 @@ return require('packer').startup(function(use) -- Packer can manage itself
         }
     }
 
+    -- git integration | <leader>gS
+    use({
+        "kdheepak/lazygit.nvim",
+        -- optional for floating window border decoration
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+    })
+
     -- harpoon | <leader>ha
     use("theprimeagen/harpoon")
     -- history of changes | <F5>
     use("mbbill/undotree")
-    -- git integration | <leader>gS
-    use("tpope/vim-fugitive")
+    -- git column integration
     use("lewis6991/gitsigns.nvim")
     -- highlighting
     use("nvim-treesitter/nvim-treesitter");

@@ -47,6 +47,9 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 vim.keymap.set("n", "<leader><s-l>", "<cmd>vertical resize +5<CR>");
 vim.keymap.set("n", "<leader><s-h>", "<cmd>vertical resize -5<CR>");
 
+-- Lazy git
+vim.keymap.set("n", "<leader>gS", "<cmd>LazyGit<CR>");
+
 -- Copilot remap
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
