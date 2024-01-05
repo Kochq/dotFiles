@@ -77,4 +77,6 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use('stevearc/oil.nvim')
     -- Nice icons
     use('nvim-tree/nvim-web-devicons')
+    -- Obsidian integration
+    use("epwalsh/obsidian.nvim")
 end)
