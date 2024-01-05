@@ -67,6 +67,8 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use('eandrju/cellular-automaton.nvim')
     -- -- copilot | <C-e>
     -- use('github/copilot.vim')
+    -- Autocompletion | () ""
+    use('jiangmiao/auto-pairs')
     -- Comment toggler | <leader>gc
     use('terrortylor/nvim-comment')
     -- Transparent for gitsigns
@@ -78,5 +80,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
     -- Nice icons
     use('nvim-tree/nvim-web-devicons')
     -- Obsidian integration
-    use("epwalsh/obsidian.nvim")
+    use('epwalsh/obsidian.nvim')
+    -- Surround | Replace: sr - Surround: sa
+    use('echasnovski/mini.surround')
 end)
