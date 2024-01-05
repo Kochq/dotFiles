@@ -13,13 +13,19 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use('marko-cerovac/material.nvim')
     use('Mofiqul/vscode.nvim')
     use('rose-pine/neovim')
+    use('ellisonleao/gruvbox.nvim')
+    use('catppuccin/nvim')
+    use('navarasu/onedark.nvim')
+    use('shaunsingh/nord.nvim')
+
     -- lualine
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+
     -- Telescope theme
-    use ('nvim-telescope/telescope-ui-select.nvim')
+    use('nvim-telescope/telescope-ui-select.nvim')
 
     -- lenguage server
     use {
