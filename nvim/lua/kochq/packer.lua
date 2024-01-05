@@ -81,6 +81,6 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use('nvim-tree/nvim-web-devicons')
     -- Obsidian integration
     use('epwalsh/obsidian.nvim')
-    -- Surround | Replace: sr - Surround: sa
-    use('echasnovski/mini.surround')
+    -- Jump to characters | s
+    use('ggandor/leap.nvim')
 end)
