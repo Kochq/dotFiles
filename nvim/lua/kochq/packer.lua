@@ -67,7 +67,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use("eandrju/cellular-automaton.nvim")
     -- -- copilot | <C-e>
     -- use("github/copilot.vim")
-    -- Autocompletion () ""
+    -- Autocompletion | () ""
     use("jiangmiao/auto-pairs")
     -- Comment toggler | <leader>gc
     use("terrortylor/nvim-comment")
@@ -75,4 +75,8 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use("xiyaowong/nvim-transparent")
     -- Markdown preview
     use("iamcco/markdown-preview.nvim")
+    -- Better file explorer
+    use("stevearc/oil.nvim")
+    -- Nice icons
+    use("nvim-tree/nvim-web-devicons")
 end)
