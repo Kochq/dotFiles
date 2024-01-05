@@ -86,13 +86,20 @@ for i in groups:
     )
 
 layouts = [
-     layout.MonadTall(
-         margin=5,
-         single_margin=0,
-         border_width=1,
-         single_border_width=0,
-         border_focus=colors[5],
-     ),
+    layout.Columns(
+        margin=3,
+        border_width=1,
+        margin_on_single=0,
+        border_focus=colors[5],
+    ),
+
+    # layout.MonadTall(
+    #      margin=5,
+    #      single_margin=0,
+    #      border_width=1,
+    #      single_border_width=0,
+    #      border_focus=colors[5],
+    #  ),
 
     layout.Max(),
 
@@ -111,13 +118,6 @@ layouts = [
     # layout.VerticalTile(),
     # layout.Stack(num_stacks=2),
     # layout.Bsp(margin=4),
-    #layout.Columns(
-    #    margin=0,
-    #    single_border_width=0,
-    #    single_margin=0,
-    #    border_focus="#000",
-    #    border_width=1,
-    #),
 ]
 
 widget_defaults = dict(
