@@ -45,38 +45,36 @@ return require('packer').startup(function(use) -- Packer can manage itself
 
     -- git integration | <leader>gS
     use({
-        "kdheepak/lazygit.nvim",
+        'kdheepak/lazygit.nvim',
         -- optional for floating window border decoration
         requires = {
-            "nvim-lua/plenary.nvim",
+            'nvim-lua/plenary.nvim',
         },
     })
 
     -- harpoon | <leader>ha
-    use("theprimeagen/harpoon")
+    use('theprimeagen/harpoon')
     -- history of changes | <F5>
-    use("mbbill/undotree")
+    use('mbbill/undotree')
     -- git column integration
-    use("lewis6991/gitsigns.nvim")
+    use('lewis6991/gitsigns.nvim')
     -- highlighting
-    use("nvim-treesitter/nvim-treesitter");
-    use("nvim-treesitter/playground")
+    use('nvim-treesitter/nvim-treesitter');
+    use('nvim-treesitter/playground')
     -- top function context
-    use("nvim-treesitter/nvim-treesitter-context")
+    use('nvim-treesitter/nvim-treesitter-context')
     -- lluvia | <leader>mr
-    use("eandrju/cellular-automaton.nvim")
+    use('eandrju/cellular-automaton.nvim')
     -- -- copilot | <C-e>
-    -- use("github/copilot.vim")
-    -- Autocompletion | () ""
-    use("jiangmiao/auto-pairs")
+    -- use('github/copilot.vim')
     -- Comment toggler | <leader>gc
-    use("terrortylor/nvim-comment")
+    use('terrortylor/nvim-comment')
     -- Transparent for gitsigns
-    use("xiyaowong/nvim-transparent")
+    use('xiyaowong/nvim-transparent')
     -- Markdown preview
-    use("iamcco/markdown-preview.nvim")
+    use('iamcco/markdown-preview.nvim')
     -- Better file explorer
-    use("stevearc/oil.nvim")
+    use('stevearc/oil.nvim')
     -- Nice icons
-    use("nvim-tree/nvim-web-devicons")
+    use('nvim-tree/nvim-web-devicons')
 end)
