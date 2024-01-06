@@ -6,7 +6,7 @@ require("obsidian").setup({
   workspaces = {
     {
       name = "personal",
-      path = "~/Workspace/brain",
+      path = "~/Workspace/Brain2",
     },
     {
       name = "work",
@@ -77,7 +77,7 @@ require("obsidian").setup({
   -- way then set 'mappings = {}'.
   mappings = {
     -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-    ["gf"] = {
+    ["gd"] = {
       action = function()
         return require("obsidian").util.gf_passthrough()
       end,
@@ -112,7 +112,7 @@ require("obsidian").setup({
 
   -- Optional, boolean or a function that takes a filename and returns a boolean.
   -- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
-  disable_frontmatter = false,
+  disable_frontmatter = true,
 
   -- Optional, alternatively you can customize the frontmatter data.
   note_frontmatter_func = function(note)
