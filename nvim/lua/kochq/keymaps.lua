@@ -6,7 +6,7 @@ vim.keymap.set("n", "<leader>q", ":q<CR>")
 vim.keymap.set("n", "<leader>Q", ":q!<CR>")
 
 -- Files
-vim.keymap.set("n", "<leader>n", ":Oil<CR>")
+vim.keymap.set("n", "<leader>n", ":Ex<CR>")
 
 -- Move lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

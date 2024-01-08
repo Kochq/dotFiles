@@ -75,8 +75,6 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use('xiyaowong/nvim-transparent')
     -- Markdown preview
     use('iamcco/markdown-preview.nvim')
-    -- Better file explorer
-    use('stevearc/oil.nvim')
     -- Nice icons
     use('nvim-tree/nvim-web-devicons')
     -- Obsidian integration
