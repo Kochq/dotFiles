@@ -1,0 +1,7 @@
+#!/bin/sh
+# Xsetup - run as root before the login dialog appears
+
+#xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --rate 144 --output eDP-1-1 --mode 1920x1080 --pos 0x0 --rotate normal --rate 120
+
+xinput --set-prop 'pointer:''Logitech G203 LIGHTSYNC Gaming Mouse' 'libinput Accel Profile Enabled' 0, 1
+xinput --set-prop 'pointer:''Logitech G203 LIGHTSYNC Gaming Mouse' 'libinput Accel Speed' 0.0
