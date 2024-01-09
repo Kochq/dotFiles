@@ -36,9 +36,10 @@ CaskaydiaFont = 'CaskaydiaCove Nerd Font Mono'
 
 othersColors = [["#282828", "#1c1f24", "#cc241d", "#98971a", "#d79921", "#458588", "#b16286", "#689d6a", "#a89984"], # Gruvbox
                 [ "#282c34", "#1c1f24", "#e06c75", "#98c379", "#e5c07b", "#61afef", "#c678dd", "#56b6c2", "#abb2bf"], # OneDark
-                [ "#282c34", "#263238", "#f07178", "#c3e88d", "#ffcb6b", "#82aaff", "#c792ea", "#89ddff", "#eeffff", "f78c6c"]] # Material 
+                [ "#282c34", "#263238", "#f07178", "#c3e88d", "#ffcb6b", "#82aaff", "#c792ea", "#89ddff", "#eeffff", "f78c6c"], # Material 
+                [ "#26233a", "#1f1d2e", "#eb6f92", "#31748f", "#f6c177", "#ebbcba", "#c4a7e7", "#9ccfd8", "#eeffff", "f78c6c"]] # Rose pine
 
-colors = othersColors[2]
+colors = othersColors[3]
 
 #groups = [Group(i) for i in "123456789"]
 
@@ -577,7 +578,7 @@ wl_input_rules = None
 wmname = "LG3D"
 
 autostart = [
-    "feh --bg-fill /home/koch/Pictures/Wallpapers/onedark.jpg",
+    "feh --bg-fill /home/koch/Pictures/Wallpapers/wallpapers/moon.jpg",
     "picom --no-vsync --fade-in-step=1 --fade-out-step=1 --fade-delta=0 &",
     "./~/dotfiles/utilityScripts/MouseSettings.sh",
 ]
