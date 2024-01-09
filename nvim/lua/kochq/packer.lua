@@ -13,7 +13,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use('marko-cerovac/material.nvim')
     use('Mofiqul/vscode.nvim')
     use('rose-pine/neovim')
-    use('sainnhe/gruvbox-material')
+    use('morhetz/gruvbox')
     use('catppuccin/nvim')
     use('navarasu/onedark.nvim')
     use('shaunsingh/nord.nvim')
@@ -81,4 +81,6 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use('epwalsh/obsidian.nvim')
     -- Jump to characters | s
     use('ggandor/leap.nvim')
+    -- Tmux navigator
+    use('christoomey/vim-tmux-navigator')
 end)
