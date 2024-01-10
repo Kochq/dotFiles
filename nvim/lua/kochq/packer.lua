@@ -61,6 +61,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
     -- highlighting
     use('nvim-treesitter/nvim-treesitter');
     use('nvim-treesitter/playground')
+    use('windwp/nvim-ts-autotag') -- Change html tags | ciw
     -- top function context
     use('nvim-treesitter/nvim-treesitter-context')
     -- lluvia | <leader>mr
@@ -81,6 +82,4 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use('epwalsh/obsidian.nvim')
     -- Jump to characters | s
     use('ggandor/leap.nvim')
-    -- Tmux navigator
-    use('christoomey/vim-tmux-navigator')
 end)
