@@ -249,7 +249,7 @@ screens = [
                 ),
                 widget.Backlight(
                     font=CaskaydiaFont,
-                    backlight_name='amdgpu_bl1',
+                    backlight_name='amdgpu_bl2',
                     mouse_callbacks={'Button1': incBrightness,
                                      'Button3': decBrightness},
                     fmt="{} ",
@@ -457,7 +457,7 @@ screens = [
                 ),
                 widget.Backlight(
                     font=CaskaydiaFont,
-                    backlight_name='amdgpu_bl1',
+                    backlight_name='amdgpu_bl2',
                     mouse_callbacks={'Button1': incBrightness,
                                      'Button3': decBrightness},
                     fmt="{} ",
@@ -578,7 +578,7 @@ wl_input_rules = None
 wmname = "LG3D"
 
 autostart = [
-    "feh --bg-fill /home/koch/Pictures/Wallpapers/wallpapers/moon.jpg",
+    "feh --bg-fill /home/koch/Pictures/wallpapers/moon.jpg",
     "picom --no-vsync --fade-in-step=1 --fade-out-step=1 --fade-delta=0 &",
     "./~/dotfiles/utilityScripts/MouseSettings.sh",
 ]
