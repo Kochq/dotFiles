@@ -19,6 +19,7 @@ fi
 # Path to your oh-my-zsh installation.
 #installation via script from github
 export ZSH="/home/$USER/.oh-my-zsh"
+export ANDROID_HOME="$HOME/Android/Sdk"
 #installation via paru -S oh-my-zsh-git
 
 # Set name of the theme to load --- if set to "random", it will
