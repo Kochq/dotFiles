@@ -78,8 +78,6 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use('iamcco/markdown-preview.nvim')
     -- Nice icons
     use('nvim-tree/nvim-web-devicons')
-    -- Obsidian integration
-    use('epwalsh/obsidian.nvim')
     -- Jump to characters | s
     use('ggandor/leap.nvim')
 end)
