@@ -61,15 +61,12 @@ return require('packer').startup(function(use) -- Packer can manage itself
     -- highlighting
     use('nvim-treesitter/nvim-treesitter');
     use('nvim-treesitter/playground')
-    use('windwp/nvim-ts-autotag') -- Change html tags | ciw
     -- top function context
     use('nvim-treesitter/nvim-treesitter-context')
     -- lluvia | <leader>mr
     use('eandrju/cellular-automaton.nvim')
     -- -- copilot | <C-e>
     -- use('github/copilot.vim')
-    -- Autocompletion | () ""
-    use('jiangmiao/auto-pairs')
     -- Comment toggler | <leader>gc
     use('terrortylor/nvim-comment')
     -- Transparent for gitsigns
