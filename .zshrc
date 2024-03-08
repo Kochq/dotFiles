@@ -182,6 +182,7 @@ alias cdf='cd $(fd --type d --hidden | fzf)'
 alias vf='nvim $(fd --type f --hidden | fzf)' 
 alias disk='df -T'
 alias gs='lazygit'
+alias htop='btop'
 
 alias car="cat"
 alias dc="cd"
