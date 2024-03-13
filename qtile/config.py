@@ -44,14 +44,14 @@ colors = othersColors[3]
 #groups = [Group(i) for i in "123456789"]
 
 __groups = {
-    1: Group(""),
-    2: Group(""),
-    3: Group(""),
-    4: Group(""),
-    5: Group(""),
-    8: Group(""),
-    9: Group("󰙯"),
-    0: Group(""),
+    "q": Group(""),
+    "w": Group(""),
+    "e": Group(""),
+    "r": Group(""),
+    "t": Group(""),
+    "i": Group(""),
+    "o": Group("󰙯"),
+    "p": Group(""),
 }
 
 groups = [__groups[i] for i in __groups]

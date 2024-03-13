@@ -37,7 +37,7 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod], "x", lazy.window.kill(), desc="Kill focused window"),
     #Shutdown/Restart Qtile
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
@@ -45,7 +45,7 @@ keys = [
     Key([mod, "control", "shift"], "q", lazy.spawn("shutdown now"), desc="Shutdown system"),
     Key([mod, "control", "shift"], "r", lazy.spawn("reboot"), desc="Reboot system"),
     #Rofi (https://github.com/adi1090x/rofi)
-    Key([mod], "r", lazy.spawn("/home/koch/.config/rofi/launchers/type-1/launcher.sh")),
+    Key([mod], "l", lazy.spawn("/home/koch/.config/rofi/launchers/type-1/launcher.sh")),
     Key([mod], "t", lazy.spawn("/home/koch/.config/rofi/launchers/type-1/launcherW.sh")),
     #ScreenShot
     Key(["mod4"], "s", lazy.spawn("scrot 'Pictures/ScreenShot.png' -z -o -e 'xclip -selection clipboard -t image/png -i $f'")),
@@ -59,5 +59,6 @@ keys = [
     Key([mod], "F5", lazy.spawn("brightnessctl s 5%-")),
     #Screens control
     Key([], "F1", lazy.next_screen(), desc='Next monitor'),
+    Key([mod], "b", lazy.spawn("brave"))
 ]
 
