@@ -4,8 +4,12 @@ if fileExt == "php" then
   vim.keymap.set("n", "<leader>r", ":ter php %<CR>")
 elseif fileExt == "cpp" then
   vim.keymap.set("n", "<leader>r", ":!g++ %<CR>:ter ./a.out<CR>")
+elseif fileExt == "c" then
+  vim.keymap.set("n", "<leader>r", ":!c++ %<CR>:ter ./a.out<CR>")
 elseif fileExt == "py" then
   vim.keymap.set("n", "<leader>r", ":ter python3 %<CR>")
+elseif fileExt == "go" then
+    vim.keymap.set("n", "<leader>r", ":ter go run %<CR>")
 elseif fileExt == "js" then
   vim.keymap.set("n", "<leader>r", ":ter node %<CR>")
 else
