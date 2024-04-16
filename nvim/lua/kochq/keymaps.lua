@@ -50,6 +50,13 @@ vim.keymap.set("n", "<leader><s-h>", "<cmd>vertical resize -5<CR>");
 -- Lazy git
 vim.keymap.set("n", "<leader>gS", "<cmd>LazyGit<CR>");
 
+-- Quickfix
+vim.keymap.set("n", "<C-S-j>", "<cmd>cnext<CR>");
+vim.keymap.set("n", "<C-S-k>", "<cmd>cprev<CR>");
+
+-- TSContext
+vim.keymap.set("n", "<leader>tsc", "<cmd>TSContextToggle<CR>")
+
 -- Copilot remap
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
