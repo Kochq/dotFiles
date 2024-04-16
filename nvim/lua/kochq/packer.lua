@@ -77,4 +77,6 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use('nvim-tree/nvim-web-devicons')
     -- Jump to characters | s
     use('ggandor/leap.nvim')
+    -- Privacy
+    use('laytan/cloak.nvim')
 end)

@@ -42,6 +42,13 @@ function SetKeyBindings()
   end
 end
 
+vim.api.nvim_create_autocmd("TextYankPost", {
+    desc = "Highlight when yanking text",
+    callback = function ()
+        vim.highlight.on_yank()
+    end,
+})
+
 -- Set up an autocmd in Lua
 vim.api.nvim_exec([[
   augroup DirectoryKeyBindings
