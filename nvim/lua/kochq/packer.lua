@@ -75,8 +75,10 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use('iamcco/markdown-preview.nvim')
     -- Nice icons
     use('nvim-tree/nvim-web-devicons')
-    -- Jump to characters | s
-    use('ggandor/leap.nvim')
     -- Privacy
     use('laytan/cloak.nvim')
+    -- Autopair
+    use('windwp/nvim-autopairs')
+
+    use 'mfussenegger/nvim-jdtls'
 end)
