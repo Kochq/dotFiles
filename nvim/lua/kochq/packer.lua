@@ -71,14 +71,12 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use('terrortylor/nvim-comment')
     -- Transparent for gitsigns
     use('xiyaowong/nvim-transparent')
-    -- Markdown preview
-    use('iamcco/markdown-preview.nvim')
     -- Nice icons
     use('nvim-tree/nvim-web-devicons')
     -- Privacy
     use('laytan/cloak.nvim')
     -- Autopair
     use('windwp/nvim-autopairs')
-
+    -- java -> introduccion a objetos
     use 'mfussenegger/nvim-jdtls'
 end)
