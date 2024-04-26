@@ -13,7 +13,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
     use('marko-cerovac/material.nvim')
     use('Mofiqul/vscode.nvim')
     use('rose-pine/neovim')
-    use('morhetz/gruvbox')
+    use('ellisonleao/gruvbox.nvim')
     use('catppuccin/nvim')
     use('navarasu/onedark.nvim')
     use('shaunsingh/nord.nvim')
