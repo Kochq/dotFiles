@@ -59,6 +59,6 @@ keys = [
     Key([mod], "F5", lazy.spawn("brightnessctl s 5%-")),
     #Screens control
     Key([], "F1", lazy.next_screen(), desc='Next monitor'),
-    Key([mod], "b", lazy.spawn("brave"))
+    Key([mod], "b", lazy.spawn("thorium-browser"))
 ]
 
