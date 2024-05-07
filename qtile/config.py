@@ -249,7 +249,7 @@ screens = [
                 ),
                 widget.Backlight(
                     font=CaskaydiaFont,
-                    backlight_name='amdgpu_bl2',
+                    backlight_name='amdgpu_bl1',
                     mouse_callbacks={'Button1': incBrightness,
                                      'Button3': decBrightness},
                     fmt="{} ",
@@ -457,7 +457,7 @@ screens = [
                 ),
                 widget.Backlight(
                     font=CaskaydiaFont,
-                    backlight_name='amdgpu_bl2',
+                    backlight_name='amdgpu_bl1',
                     mouse_callbacks={'Button1': incBrightness,
                                      'Button3': decBrightness},
                     fmt="{} ",
