@@ -2,6 +2,7 @@ vim.cmd.packadd('packer.nvim')
 
 return require('packer').startup(function(use) -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+    use 'nvim-lua/plenary.nvim'
 
     -- fzf
     use {
@@ -53,7 +54,11 @@ return require('packer').startup(function(use) -- Packer can manage itself
     })
 
     -- harpoon | <leader>ha
-    use('theprimeagen/harpoon')
+    use {
+        'ThePrimeagen/harpoon',
+        branch = 'harpoon2',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
     -- history of changes | <F5>
     use('mbbill/undotree')
     -- git column integration
