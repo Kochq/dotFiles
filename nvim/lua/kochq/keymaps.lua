@@ -57,6 +57,9 @@ vim.keymap.set("n", "<C-S-k>", "<cmd>cprev<CR>");
 -- TSContext
 vim.keymap.set("n", "<leader>tsc", "<cmd>TSContextToggle<CR>")
 
+-- Navigate to keymap file
+vim.keymap.set("n", "<leader>km", "<cmd>e /home/koch/dotFiles/nvim/lua/kochq/keymaps.lua<CR>")
+
 -- Copilot remap
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
