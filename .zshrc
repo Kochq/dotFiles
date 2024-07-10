@@ -184,6 +184,7 @@ alias vf='nvim $(fd --type f --hidden | fzf)'
 alias disk='df -T'
 alias gs='lazygit'
 alias htop='btop'
+alias que='cd /home/koch/Workspace/tests'
 
 alias car="cat"
 alias dc="cd"
