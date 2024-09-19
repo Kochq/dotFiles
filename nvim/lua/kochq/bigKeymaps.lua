@@ -11,7 +11,7 @@ elseif fileExt == "py" then
 elseif fileExt == "go" then
     vim.keymap.set("n", "<leader>r", ":ter go run %<CR>")
 elseif fileExt == "java" then
-    vim.keymap.set("n", "<leader>r", ":ter java %<CR>")
+    vim.keymap.set("n", "<leader>r", ":!javac %<CR>:ter java %<CR>")
 elseif fileExt == "js" then
   vim.keymap.set("n", "<leader>r", ":ter node %<CR>")
 else

@@ -71,7 +71,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
     -- lluvia | <leader>mr
     use('eandrju/cellular-automaton.nvim')
     -- -- copilot | <C-e>
-    -- use('github/copilot.vim')
+    use('github/copilot.vim')
     -- Comment toggler | <leader>gc
     use('terrortylor/nvim-comment')
     -- Transparent for gitsigns
