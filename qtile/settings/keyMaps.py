@@ -1,5 +1,5 @@
 from libqtile.config import Key
-from libqtile.command import lazy
+from libqtile.lazy import lazy
 
 mod = "mod1"
 terminal = "alacritty"
@@ -45,7 +45,7 @@ keys = [
     Key([mod, "control", "shift"], "q", lazy.spawn("shutdown now"), desc="Shutdown system"),
     Key([mod, "control", "shift"], "r", lazy.spawn("reboot"), desc="Reboot system"),
     #Rofi (https://github.com/adi1090x/rofi)
-    Key([mod], "l", lazy.spawn("/home/koch/.config/rofi/launchers/type-1/launcher.sh")),
+    Key([mod, "shift"], "l", lazy.spawn("/home/koch/.config/rofi/launchers/type-1/launcher.sh")),
     Key([mod], "t", lazy.spawn("/home/koch/.config/rofi/launchers/type-1/launcherW.sh")),
     #ScreenShot
     Key(["mod4"], "s", lazy.spawn("scrot 'Pictures/ScreenShot.png' -z -o -e 'xclip -selection clipboard -t image/png -i $f'")),

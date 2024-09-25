@@ -2,7 +2,7 @@
 # Xsetup - run as root before the login dialog appears
 
 # Monitors
-xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --rate 144 --output eDP-1-1 --mode 1920x1080 --pos 0x0 --rotate normal --rate 120
+xrandr --output HDMI-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --rate 144 --output eDP-1-1 --mode 1920x1080 --pos 0x0 --rotate normal --rate 120
 
 # Mouse DPI
 xinput --set-prop 'pointer:''Logitech G203 LIGHTSYNC Gaming Mouse' 'libinput Accel Profile Enabled' 0, 1
@@ -10,4 +10,4 @@ xinput --set-prop 'pointer:''Logitech G203 LIGHTSYNC Gaming Mouse' 'libinput Acc
 
 # Caps as Ctrl
 setxkbmap -option caps:ctrl_modifier
-setxkbmap latam
+setxkbmap us
