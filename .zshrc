@@ -150,6 +150,8 @@ fi
 PATH="$HOME/Downloads/PhpStorm-232.10227.13/bin:$PATH"
 PATH="$HOME/dotFiles/utilityScripts/:$PATH"
 PATH="/usr/lib/jvm/java-17-openjdk/bin/:$PATH"
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
+
 
 # show the list of packages that need this package - depends mpv as example
 function_depends()  {

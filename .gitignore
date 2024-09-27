@@ -1,3 +1,4 @@
 qtile/__pycache__
 qtile/__pycache__/*
 nvim/plugin/packer_compiled.lua
+tmux/plugins
