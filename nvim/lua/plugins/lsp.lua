@@ -30,6 +30,9 @@ return {
             vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
             vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
         end)
+        require'lspconfig'.jdtls.setup{
+            root_dir = require('lspconfig/util').root_pattern('.git', 'pom.xml', 'build.gradle', 'src', 'ipoo'),
+        }
         local cmp = require('cmp')
         local cmp_lsp = require("cmp_nvim_lsp")
         local capabilities = vim.tbl_deep_extend(
