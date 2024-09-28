@@ -32,6 +32,10 @@ require('mason-lspconfig').setup({
     }
 })
 
+require'lspconfig'.jdtls.setup{
+  root_dir = require('lspconfig/util').root_pattern('.git', 'pom.xml', 'build.gradle', 'src')
+}
+
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
