@@ -60,6 +60,9 @@ vim.keymap.set("n", "<leader>tsc", "<cmd>TSContextToggle<CR>")
 -- Navigate to keymap file
 vim.keymap.set("n", "<leader>km", "<cmd>e /home/koch/dotFiles/nvim/lua/kochq/keymaps.lua<CR>")
 
+-- Undotree
+vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle)
+
 -- Copilot remap
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
