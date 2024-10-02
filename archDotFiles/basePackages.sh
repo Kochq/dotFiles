@@ -1,0 +1,1 @@
+sudo pacman -S alacritty alsa-utils arandr bat btop fd feh fzf git lazygit lsd mupdf neofetch vim neovim nodejs npm php picom pipewire pipewire-alsa pipewire-jack pipewire-pulse pyenv ripgrep rofi scrot slop tmux tree ttf-cascadia-code-nerd ttf-roboto x11-ssh-askpass xclip xorg-xinput yarn zsh
