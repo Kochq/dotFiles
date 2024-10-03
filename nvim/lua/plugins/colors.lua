@@ -20,4 +20,12 @@ return {
             })
         end
     },
+    {
+        'marko-cerovac/material.nvim',
+        'Mofiqul/vscode.nvim',
+        'ellisonleao/gruvbox.nvim',
+        'catppuccin/nvim',
+        'navarasu/onedark.nvim',
+        'shaunsingh/nord.nvim',
+    }
 }
