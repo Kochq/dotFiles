@@ -1,4 +1,7 @@
 qtile/__pycache__
 qtile/__pycache__/*
+qtile/settings/__pycache__
+qtile/settings/__pycache__/*
 nvim/plugin/packer_compiled.lua
 tmux/plugins
+nvim/lazy-lock.json
