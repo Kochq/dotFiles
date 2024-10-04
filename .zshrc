@@ -148,7 +148,7 @@ if [ -d "$HOME/.local/bin" ] ;
 fi
 
 PATH="$HOME/Downloads/PhpStorm-232.10227.13/bin:$PATH"
-PATH="$HOME/dotFiles/utilityScripts/:$PATH"
+PATH="$HOME/dotFiles/myScripts/:$PATH"
 PATH="/usr/lib/jvm/java-17-openjdk/bin/:$PATH"
 export JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
 
@@ -191,6 +191,8 @@ alias que='cd /home/koch/Workspace/tests'
 alias car="cat"
 alias dc="cd"
 alias sl="ls"
+
+alias diavlo="ascii-image-converter Downloads/diavlo.webp"
 
 alias config="/usr/bin/git --git-dir=$HOME/dotFiles --work-tree=$HOME"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
