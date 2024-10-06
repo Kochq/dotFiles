@@ -45,8 +45,8 @@ keys = [
     Key([mod, "control", "shift"], "q", lazy.spawn("shutdown now"), desc="Shutdown system"),
     Key([mod, "control", "shift"], "r", lazy.spawn("reboot"), desc="Reboot system"),
     #Rofi (https://github.com/adi1090x/rofi)
-    Key([mod, "shift"], "l", lazy.spawn("/home/koch/.config/rofi/launchers/type-1/launcher.sh")),
-    Key([mod, "control"], "l", lazy.spawn("/home/koch/.config/rofi/launchers/type-1/launcherW.sh")),
+    Key([mod, "control"], "l", lazy.spawn("/home/koch/.config/rofi/launchers/type-1/launcher.sh")),
+    Key([mod, "control"], "t", lazy.spawn("/home/koch/.config/rofi/launchers/type-1/launcherW.sh")),
     #ScreenShot
     Key(["mod4"], "s", lazy.spawn("scrot 'Pictures/ScreenShot.png' -z -o -e 'xclip -selection clipboard -t image/png -i $f'")),
     Key(["mod4", "shift"], "s", lazy.spawn("scrot 'Pictures/ScreenShot.png' -o -f -s -z -e 'xclip -selection clipboard -t image/png -i $f'")),
