@@ -30,5 +30,6 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.g.netrw_ftp_cmd="ftp -p"
+vim.g.gruvbox_contrast_dark = 'hard'
 
 vim.opt.conceallevel=1

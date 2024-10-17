@@ -97,9 +97,7 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
+bindsym $mod+Shift+Control+q exit
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -178,6 +176,8 @@ smart_borders on
 for_window [class="^.*"] border pixel 2
                           # class                 border  backgr. text    indicator child_border
 for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
+
+for_window [class="Java" instance="Places"] floating enable
 
 exec --no-startup-id feh --bg-fill /home/koch/Pictures/wallpapers/moon.jpg
 exec picom --no-vsync --fade-in-step=1 --fade-out-step=1 --fade-delta=0 &

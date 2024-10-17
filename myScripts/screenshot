@@ -1,0 +1,1 @@
+scrot '~/Pictures/ScreenShot.png' -z -s -o -e 'xclip -selection clipboard -t image/png -i $f'

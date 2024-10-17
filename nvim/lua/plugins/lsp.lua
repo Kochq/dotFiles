@@ -55,7 +55,15 @@ return {
                         capabilities = capabilities
                     }
                 end,
-
+                clangd = function()
+                    require("lspconfig").clangd.setup {
+                        cmd = { "clangd", "--fallback-style=webkit" },
+                        root_dir = function() return vim.loop.cwd() end,
+                        on_attach = function(client, bufnr)
+                            -- Additional configuration
+                        end
+                    }
+                end,
                 zls = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.zls.setup({
