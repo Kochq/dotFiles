@@ -111,11 +111,13 @@ return {
                 ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
             }),
             sources = cmp.config.sources({
-                { name = 'nvim_lsp' },
-                { name = 'luasnip' }, -- For luasnip users.
+                { name = "copilot", group_index = 2 },
+                { name = "nvim_lsp", group_index = 2 },
+                { name = "path", group_index = 2 },
+                { name = "luasnip", group_index = 2 },
             }, {
-                { name = 'buffer' },
-            })
+                    { name = 'buffer' },
+                })
         })
 
         vim.diagnostic.config({
