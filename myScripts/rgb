@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ -f $1 ] || [ $1 == "on" ]; then
+    openrgb -d 0 -c FFFFFF
+    exit
+fi
+
+if [ $1 == "off" ]; then
+    openrgb -d 0 -c 000000
+    exit
+fi
+
+openrgb -d 0 -c $1
