@@ -23,7 +23,7 @@ end
 
 -- Define a Lua function for key bindings
 vim.g.relevarDir = "/home/koch/Workspace/Relevar/app"
-local test = "scp -P 5052 download.php administrator@201.234.19.19:C:/Program Files/SSV SC/app/"
+local test = "scp -P 5052 download.php administrator@186.0.174.50:C:/Program Files/SSV SC/app/"
 
 function SetKeyBindings()
   local current_file = vim.fn.expand('%:t')
@@ -32,12 +32,12 @@ function SetKeyBindings()
   if string.find(current_path, vim.g.relevarDir .. '/', 1, true) then
     local relative_path = string.gsub(current_path, vim.g.relevarDir .. '/', '')
     vim.api.nvim_set_keymap('n', '<leader>s',
-    [[:w<CR>:execute "!scp -P 5052 ]] .. vim.fn.fnameescape(current_file) .. [[ administrator@201.234.19.19:C:/Program\\ Files/SSV\\ SC/app/]] ..
+    [[:w<CR>:execute "!scp -P 5052 ]] .. vim.fn.fnameescape(current_file) .. [[ administrator@186.0.174.50:C:/Program\\ Files/SSV\\ SC/app/]] ..
     vim.fn.fnameescape(relative_path) .. [[\n"<CR>]],
     { noremap = true, silent = true })
   elseif string.find(current_path, vim.g.relevarDir) then
     vim.api.nvim_set_keymap('n', '<leader>s',
-    [[:w<CR>:execute "!scp -P 5052 ]] .. vim.fn.fnameescape(current_file) .. [[ administrator@201.234.19.19:C:/Program\\ Files/SSV\\ SC/app/]] .. [[\n"<CR>]],
+    [[:w<CR>:execute "!scp -P 5052 ]] .. vim.fn.fnameescape(current_file) .. [[ administrator@186.0.174.50:C:/Program\\ Files/SSV\\ SC/app/]] .. [[\n"<CR>]],
     { noremap = true, silent = true })
   else
     vim.api.nvim_set_keymap('n', '<leader>s', [[:w<CR>]], { noremap = true, silent = true })
