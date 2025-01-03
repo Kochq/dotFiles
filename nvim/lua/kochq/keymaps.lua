@@ -25,6 +25,12 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Paste without overwriting clipboard
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
+-- Set column to 80
+vim.keymap.set('n', "<leader>o", ':lua vim.opt.colorcolumn = "80"<CR>');
+
+-- Set column to 80
+vim.keymap.set('n', "<leader>O", ':lua vim.opt.colorcolumn = "0"<CR>');
+
 -- Q
 vim.keymap.set("n", "Q", "@q")
 
