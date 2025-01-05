@@ -45,9 +45,6 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
-                "emmet-ls",
-                "emmet-lenguaje-server",
-                "eslint-lsp",
             },
             handlers = {
                 function(server_name) -- default handler (optional)

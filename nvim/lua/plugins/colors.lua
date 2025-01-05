@@ -8,19 +8,6 @@ end
 
 return {
     {
-        "rose-pine/neovim",
-        name = "rose-pine",
-        config = function()
-            require('rose-pine').setup({
-                ColorMyPencils("rose-pine"),
-                disable_background = true,
-                styles = {
-                    italic = false,
-                },
-            })
-        end
-    },
-    {
         'ellisonleao/gruvbox.nvim',
         config = function()
             require("gruvbox").setup({
