@@ -142,10 +142,9 @@ return {
                 ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
             }),
             sources = cmp.config.sources({
-                { name = "copilot",  group_index = 2 },
-                { name = "nvim_lsp", group_index = 2 },
-                { name = "path",     group_index = 2 },
-                { name = "luasnip",  group_index = 2 },
+                { name = "nvim_lsp" },
+                { name = "path" },
+                { name = "luasnip" },
             }, {
                 { name = 'buffer' },
             })
