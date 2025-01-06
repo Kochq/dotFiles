@@ -17,7 +17,7 @@ return {
     config = function()
         local lspZero = require("lsp-zero")
         lspZero.on_attach(function(client, bufnr)
-            local opts = {buffer = bufnr, remap = false}
+            local opts = { buffer = bufnr, remap = false }
 
             vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
             vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -30,7 +30,7 @@ return {
             vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
             vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
         end)
-        require'lspconfig'.jdtls.setup{
+        require 'lspconfig'.jdtls.setup {
             root_dir = require('lspconfig/util').root_pattern('.git', 'pom.xml', 'build.gradle', 'src', 'ipoo'),
         }
         local cmp = require('cmp')
@@ -45,6 +45,9 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
+                "lua_ls",
+                "svelte",
+                "ts_ls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -75,9 +78,8 @@ return {
                     })
                     vim.g.zig_fmt_parse_errors = 0
                     vim.g.zig_fmt_autosave = 0
-
                 end,
-                ["lua_ls"] = function()
+                lua_ls = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup {
                         capabilities = capabilities,
@@ -89,6 +91,38 @@ return {
                                 }
                             }
                         }
+                    }
+                end,
+                emmet_language_server = function()
+                    require("lspconfig").emmet_language_server.setup {
+                        filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact", "php" },
+                        -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
+                        -- **Note:** only the options listed in the table are supported.
+                        init_options = {
+                            ---@type table<string, string>
+                            includeLanguages = {},
+                            --- @type string[]
+                            excludeLanguages = {},
+                            --- @type string[]
+                            extensionsPath = {},
+                            --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
+                            preferences = {},
+                            --- @type boolean Defaults to `true`
+                            showAbbreviationSuggestions = true,
+                            --- @type "always" | "never" Defaults to `"always"`
+                            showExpandedAbbreviation = "always",
+                            --- @type boolean Defaults to `false`
+                            showSuggestionsAsSnippets = false,
+                            --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
+                            syntaxProfiles = {},
+                            --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
+                            variables = {},
+                        },
+                    }
+                end,
+                ts_ls = function()
+                    require("lspconfig").ts_ls.setup {
+                        filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", },
                     }
                 end,
             }
@@ -108,13 +142,13 @@ return {
                 ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
             }),
             sources = cmp.config.sources({
-                { name = "copilot", group_index = 2 },
+                { name = "copilot",  group_index = 2 },
                 { name = "nvim_lsp", group_index = 2 },
-                { name = "path", group_index = 2 },
-                { name = "luasnip", group_index = 2 },
+                { name = "path",     group_index = 2 },
+                { name = "luasnip",  group_index = 2 },
             }, {
-                    { name = 'buffer' },
-                })
+                { name = 'buffer' },
+            })
         })
 
         vim.diagnostic.config({
