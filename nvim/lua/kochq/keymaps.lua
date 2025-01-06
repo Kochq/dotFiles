@@ -75,7 +75,4 @@ vim.keymap.set('i', '<C-e>', 'copilot#Accept("<CR>")', {
   replace_keycodes = false
 })
 
--- Transpose words
-vim.keymap.set("n", "<C-t>", "wbdwBPa <Esc> elxbhvpl")
-
 require("kochq.bigKeymaps")
