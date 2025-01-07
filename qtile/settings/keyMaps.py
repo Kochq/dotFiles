@@ -22,10 +22,10 @@ keys = [
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    #Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([mod, "control", "shift"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+    Key([mod, "control", "shift"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key([mod, "control", "shift"], "j", lazy.layout.grow_down(), desc="Grow window down"),
+    Key([mod, "control", "shift"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "f", lazy.hide_show_bar(), desc="Toggle top bar"),
     Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
