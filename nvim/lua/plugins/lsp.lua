@@ -127,9 +127,14 @@ return {
                     }
                 end,
                 eslint = function()
-                    require("lspconfig").eslint.setup {
-                        filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", },
-                    }
+                    require("lspconfig").eslint.setup({
+                        on_attach = function(client, bufnr)
+                            vim.api.nvim_create_autocmd("BufWritePre", {
+                                buffer = bufnr,
+                                command = "EslintFixAll",
+                            })
+                        end,
+                    })
                 end,
             }
         })
