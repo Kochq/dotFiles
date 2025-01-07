@@ -66,13 +66,16 @@ vim.keymap.set("n", "<leader>km", "<cmd>e /home/koch/dotFiles/nvim/lua/kochq/key
 -- Undotree
 vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle)
 
+-- Go err
+vim.keymap.set('n', '<leader><S-e>', 'oif err != nil {\n}<Esc>k', { noremap = true, silent = true })
+
 -- Copilot remap
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
 vim.g.copilot_tab_fallback = ""
 vim.keymap.set('i', '<C-e>', 'copilot#Accept("<CR>")', {
-  expr = true,
-  replace_keycodes = false
+    expr = true,
+    replace_keycodes = false
 })
 
 require("kochq.bigKeymaps")
