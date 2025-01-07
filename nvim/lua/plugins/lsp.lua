@@ -48,6 +48,7 @@ return {
                 "lua_ls",
                 "svelte",
                 "ts_ls",
+                "eslint",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -122,6 +123,11 @@ return {
                 end,
                 ts_ls = function()
                     require("lspconfig").ts_ls.setup {
+                        filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", },
+                    }
+                end,
+                eslint = function()
+                    require("lspconfig").eslint.setup {
                         filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", },
                     }
                 end,
