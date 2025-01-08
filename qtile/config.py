@@ -210,11 +210,58 @@ screens = [
                 ),
                 widget.Sep(linewidth=1, foreground=colors[6], background=colors[6]),
 
-                #Volume
+                # Battery
                 widget.TextBox(
                     text='',
                     font="Ubuntu Mono",
                     background=colors[6],
+                    foreground=colors[5],
+                    padding=-5.1,
+                    fontsize=45
+                ),
+                widget.Battery(
+                    foreground=colors[1],
+                    font=CaskaydiaFont,
+                    padding=5,
+                    background=colors[5],
+                    update_interval=10,
+                    charge_char='󰂄',
+                    discharge_char='󰂎',
+                    unknown_char='󰂑',
+                    format='{char} {percent:2.0%}'
+                ),
+
+                # Brightness
+                widget.TextBox(
+                    text='',
+                    font="Ubuntu Mono",
+                    background=colors[5],
+                    foreground=colors[4],
+                    padding=-5.1,
+                    fontsize=45
+                ),
+                widget.TextBox(
+                    text="", font=CaskaydiaFont,
+                    fontsize=27,
+                    padding=5,
+                    background=colors[4],
+                    foreground=colors[1],
+                ),
+                widget.Backlight(
+                    font=CaskaydiaFont,
+                    backlight_name='intel_backlight',
+                    mouse_callbacks={'Button1': incBrightness,
+                                     'Button3': decBrightness},
+                    fmt="{} ",
+                    background=colors[4],
+                    foreground=colors[1],
+                ),
+
+                #Volume
+                widget.TextBox(
+                    text='',
+                    font="Ubuntu Mono",
+                    background=colors[4],
                     foreground=colors[3],
                     padding=-5.1,
                     fontsize=45
