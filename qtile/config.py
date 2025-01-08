@@ -88,7 +88,7 @@ for i in groups:
 
 layouts = [
     layout.Columns(
-        margin=3,
+        margin=0,
         border_width=1,
         margin_on_single=0,
         border_focus=colors[5],
@@ -172,11 +172,11 @@ screens = [
                 widget.DF(warn_space=3),
                 # CPU Temperature 
                 widget.TextBox(
-                    text='',
+                    text='',
                     font="Ubuntu Mono",
                     background=colors[0],
                     foreground=colors[7],
-                    padding=-5.1,
+                    padding=-6.1,
                     fontsize=45
                 ),
                 widget.ThermalSensor(
@@ -190,11 +190,11 @@ screens = [
 
                 # Apps Icons
                 widget.TextBox(
-                    text='',
+                    text='',
                     font="Ubuntu Mono",
                     background=colors[7],
                     foreground=colors[6],
-                    padding=-5.1,
+                    padding=-6.1,
                     fontsize=45
                 ),
                 widget.Systray(
@@ -212,11 +212,11 @@ screens = [
 
                 #Volume
                 widget.TextBox(
-                    text='',
+                    text='',
                     font="Ubuntu Mono",
                     background=colors[6],
                     foreground=colors[3],
-                    padding=-5.1,
+                    padding=-6.1,
                     fontsize=45
                 ),
                 widget.TextBox(
@@ -256,219 +256,11 @@ screens = [
 
                 # Calendar
                 widget.TextBox(
-                    text='',
+                    text='',
                     font="Ubuntu Mono",
                     background=colors[3],
                     foreground=colors[2],
-                    padding=-5.1,
-                    fontsize=45
-                ),
-                widget.TextBox(
-                    text="󰃰", font=CaskaydiaFont,
-                    fontsize=27,
-                    padding=7,
-                    background=colors[2],
-                    foreground=colors[1],
-                ),
-                widget.Clock(
-                    font=CaskaydiaFont,
-                    foreground=colors[1],
-                    background=colors[2],
-                    format="%d/%m/%y - %H:%M "
-                ),
-            ],
-            25,
-            # border_width=[0, 0, 0, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
-        ),
-    ),
-    Screen(
-        top=bar.Bar(
-            [
-                widget.GroupBox(
-                    font=CaskaydiaFont,
-                    fontsize=27,
-                    margin_x=0,
-                    padding_y=8,
-                    padding_x=5,
-                    this_current_screen_border=colors[6],
-                    borderwidth=1,
-                    inactive="777777",
-                    rounded=False,
-                    highlight_method='block',
-                    urgent_alert_method='block',
-                    disable_drag=True,
-                ),
-                widget.Spacer(length=5),
-                widget.Sep(
-                    linewidth=0,
-                    padding=6,
-                    foreground="#333333",
-                    background="#333333"
-                ),
-
-                widget.Spacer(length=5),
-                #widget.Spacer(length=10),
-                #widget.CurrentLayout(font=CaskaydiaFont, ontsize=fsize),
-                #widget.CurrentLayoutIcon(font=CaskaydiaFont, ontsize=fsize), #widget.Spacer(length=10), #widget.Sep(
-                #    linewidth=0,
-                #    padding=6,
-                #    foreground="#333333",
-                #    background="#333333"
-                #),
-                #widget.Spacer(length=10),
-
-                # Window Title
-                #widget.WindowName(font=CaskaydiaFont, fontsize=fsize, padding=5),
-                widget.TaskList(
-                    font=CaskaydiaFont,
-                    border=colors[0],
-                    margin=1,
-                    padding=3,
-                    fontsize=13,
-                    icon_size=15
-                ),
-
-                # Disk freespace
-                widget.DF(warn_space=3),
-                # CPU Temperature 
-                widget.TextBox(
-                    text='',
-                    font="Ubuntu Mono",
-                    background=colors[0],
-                    foreground=colors[7],
-                    padding=-5.1,
-                    fontsize=45
-                ),
-                widget.ThermalSensor(
-                    font=CaskaydiaFont,
-                    foreground=colors[1],
-                    background=colors[7],
-                    threshold=60,
-                    fmt='Temp: {}',
-                    padding=5
-                ),
-
-                # Apps Icons
-                widget.TextBox(
-                    text='',
-                    font="Ubuntu Mono",
-                    background=colors[7],
-                    foreground=colors[6],
-                    padding=-5.1,
-                    fontsize=45
-                ),
-                #widget.Systray(
-                #    foreground=colors[1],
-                #    background=colors[6],
-                #    padding=5
-                #),
-                widget.Sep(linewidth=1, foreground=colors[6], background=colors[6]),
-                widget.CurrentLayoutIcon(
-                    foreground=colors[1],
-                    background=colors[6],
-                    padding=5,
-                ),
-                widget.Sep(linewidth=1, foreground=colors[6], background=colors[6]),
-
-                # Battery
-                widget.TextBox(
-                    text='',
-                    font="Ubuntu Mono",
-                    background=colors[6],
-                    foreground=colors[5],
-                    padding=-5.1,
-                    fontsize=45
-                ),
-                widget.Battery(
-                    foreground=colors[1],
-                    font=CaskaydiaFont,
-                    padding=5,
-                    background=colors[5],
-                    update_interval=10,
-                    charge_char='󰂄',
-                    discharge_char='󰂎',
-                    unknown_char='󰂑',
-                    format='{char} {percent:2.0%}'
-                ),
-
-                # Brightness
-                widget.TextBox(
-                    text='',
-                    font="Ubuntu Mono",
-                    background=colors[5],
-                    foreground=colors[4],
-                    padding=-5.1,
-                    fontsize=45
-                ),
-                widget.TextBox(
-                    text="", font=CaskaydiaFont,
-                    fontsize=27,
-                    padding=5,
-                    background=colors[4],
-                    foreground=colors[1],
-                ),
-                widget.Backlight(
-                    font=CaskaydiaFont,
-                    backlight_name='amdgpu_bl1',
-                    mouse_callbacks={'Button1': incBrightness,
-                                     'Button3': decBrightness},
-                    fmt="{} ",
-                    background=colors[4],
-                    foreground=colors[1],
-                ),
-
-                #Volume
-                widget.TextBox(
-                    text='',
-                    font="Ubuntu Mono",
-                    background=colors[4],
-                    foreground=colors[3],
-                    padding=-5.1,
-                    fontsize=45
-                ),
-                widget.TextBox(
-                    text="󰕾", font=CaskaydiaFont,
-                    fontsize=27,
-                    padding=5,
-                    foreground=colors[1],
-                    background=colors[3]
-                ),
-                widget.Volume(
-                    channel="Master",
-                    font=CaskaydiaFont,
-                    fmt='{} ',
-                    foreground=colors[1],
-                    background=colors[3]
-                ),
-                widget.TextBox(
-                    text="", font=CaskaydiaFont,
-                    fontsize=22,
-                    padding=5,
-                    foreground=colors[1],
-                    background=colors[3]
-                ),
-                widget.Volume(
-                    channel="Capture",
-                    font=CaskaydiaFont,
-                    fmt='{} ',
-                    foreground=colors[1],
-                    background=colors[3]
-                ),
-                # widget.KeyboardLayout(
-                #       foreground = colors[1],
-                #       background = colors[6],
-                #       configured_keyboards=['latam','us'],
-                #       padding = 5
-                #       ),
-
-                # Calendar
-                widget.TextBox(
-                    text='',
-                    font="Ubuntu Mono",
-                    background=colors[3],
-                    foreground=colors[2],
-                    padding=-5.1,
+                    padding=-6.1,
                     fontsize=45
                 ),
                 widget.TextBox(
