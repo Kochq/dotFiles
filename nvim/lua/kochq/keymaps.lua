@@ -69,6 +69,11 @@ vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle)
 -- Go err
 vim.keymap.set('n', '<leader><S-e>', 'oif err != nil {\n}<Esc>k', { noremap = true, silent = true })
 
+vim.keymap.set('n', '<Up>', '<Nop>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Down>', '<Nop>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Left>', '<Nop>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Right>', '<Nop>', { noremap = true, silent = true })
+
 -- Copilot remap
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
