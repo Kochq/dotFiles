@@ -10,7 +10,8 @@ local prompts = {
     Documentation = "Please provide documentation for the following code.",
     JsDocs = "Please provide JsDocs for the following code.",
     DocumentationForGithub = "Please provide documentation for the following code ready for GitHub using markdown.",
-    CreateAPost = "Please provide documentation for the following code to post it in social media, like Linkedin, it has be deep, well explained and easy to understand. Also do it in a fun and engaging way.",
+    CreateAPost =
+    "Please provide documentation for the following code to post it in social media, like Linkedin, it has be deep, well explained and easy to understand. Also do it in a fun and engaging way.",
     SwaggerApiDocs = "Please provide documentation for the following API using Swagger.",
     SwaggerJsDocs = "Please write JSDoc for the following API using Swagger.",
     Summarize = "Please summarize the following text.",
@@ -55,7 +56,7 @@ return {
         },
         config = function(_, opts)
             local chat = require("CopilotChat")
-             local select = require("CopilotChat.select")
+            local select = require("CopilotChat.select")
 
             -- Set default selection method
             opts.selection = select.unnamed
@@ -109,12 +110,12 @@ return {
                 mode = "x",
             },
 
-            { "<leader>ac", "<cmd>CopilotChat<cr>", mode = "n"},
-            { "<leader>ac", "<cmd>CopilotChat<cr>", mode = "x"},
+            { "<leader>ac", "<cmd>CopilotChat<cr>",             mode = "n" },
+            { "<leader>ac", "<cmd>CopilotChat<cr>",             mode = "x" },
             -- Try to fix the current error on the file
-            { "<leader>af", "<cmd>CopilotChatFixDiagnostic<cr>"},
+            { "<leader>af", "<cmd>CopilotChatFixDiagnostic<cr>" },
             -- Select openai model
-            { "<leader>a?", "<cmd>CopilotChatModels<cr>"},
+            { "<leader>a?", "<cmd>CopilotChatModels<cr>" },
         },
     },
 }
