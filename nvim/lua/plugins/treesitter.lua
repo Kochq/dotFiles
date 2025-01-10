@@ -36,6 +36,10 @@ return {
             },
         })
 
+        require'treesitter-context'.setup{
+            enable = false, -- Disabled by default <leader>tsc to toggle
+        }
+
         local treesitter_parser_config = require("nvim-treesitter.parsers").get_parser_configs()
         treesitter_parser_config.templ = {
             install_info = {
