@@ -109,6 +109,7 @@ return {
                 mode = "x",
             },
 
+            { "<leader>ac", "<cmd>CopilotChat<cr>", mode = "n"},
             { "<leader>ac", "<cmd>CopilotChat<cr>", mode = "x"},
             -- Try to fix the current error on the file
             { "<leader>af", "<cmd>CopilotChatFixDiagnostic<cr>"},
