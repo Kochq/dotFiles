@@ -56,8 +56,8 @@ vim.keymap.set("n", "<C-w><S-j>", "<cmd>horizontal  resize -5<CR>");
 vim.keymap.set("n", "<leader>gS", "<cmd>LazyGit<CR>");
 
 -- Quickfix
-vim.keymap.set("n", "<C-S-j>", "<cmd>cnext<CR>");
-vim.keymap.set("n", "<C-S-k>", "<cmd>cprev<CR>");
+vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>");
+vim.keymap.set("n", "<C-m>", "<cmd>cprev<CR>");
 
 -- TSContext
 vim.keymap.set("n", "<leader>tsc", "<cmd>TSContextToggle<CR>")
