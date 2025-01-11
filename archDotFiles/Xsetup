@@ -11,3 +11,5 @@ xinput --set-prop 'pointer:''Logitech G203 LIGHTSYNC Gaming Mouse' 'libinput Acc
 # Caps as Ctrl
 setxkbmap -option caps:ctrl_modifier
 setxkbmap us
+
+xset r rate 400 40
