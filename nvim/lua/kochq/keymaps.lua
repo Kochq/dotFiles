@@ -47,15 +47,17 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 -- Resize windows
-vim.keymap.set("n", "<leader><s-l>", "<cmd>vertical resize +5<CR>");
-vim.keymap.set("n", "<leader><s-h>", "<cmd>vertical resize -5<CR>");
+vim.keymap.set("n", "<C-w><S-l>", "<cmd>vertical resize +5<CR>");
+vim.keymap.set("n", "<C-w><S-h>", "<cmd>vertical resize -5<CR>");
+vim.keymap.set("n", "<C-w><S-k>", "<cmd>horizontal resize +5<CR>");
+vim.keymap.set("n", "<C-w><S-j>", "<cmd>horizontal  resize -5<CR>");
 
 -- Lazy git
 vim.keymap.set("n", "<leader>gS", "<cmd>LazyGit<CR>");
 
 -- Quickfix
-vim.keymap.set("n", "<C-S-j>", "<cmd>cnext<CR>");
-vim.keymap.set("n", "<C-S-k>", "<cmd>cprev<CR>");
+vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>");
+vim.keymap.set("n", "<C-m>", "<cmd>cprev<CR>");
 
 -- TSContext
 vim.keymap.set("n", "<leader>tsc", "<cmd>TSContextToggle<CR>")

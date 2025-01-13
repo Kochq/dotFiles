@@ -43,8 +43,8 @@ return {
             function() require('telescope').extensions.refactoring.refactors() end
         )
 
-        vim.keymap.set("x", "<leader>rfe", ":Refactor extract ")
-        vim.keymap.set("x", "<leader>rff", ":Refactor extract_to_file ")
+        vim.keymap.set("x", "<leader>rff", ":Refactor extract ")
+        vim.keymap.set("x", "<leader>rfe", ":Refactor extract_to_file ")
 
         vim.keymap.set("x", "<leader>rfv", ":Refactor extract_var ")
 
