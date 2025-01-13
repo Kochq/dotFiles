@@ -200,3 +200,10 @@ alias config="/usr/bin/git --git-dir=$HOME/dotFiles --work-tree=$HOME"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# bun completions
+[ -s "/home/koch/.bun/_bun" ] && source "/home/koch/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
