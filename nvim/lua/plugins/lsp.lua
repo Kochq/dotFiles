@@ -15,8 +15,24 @@ return {
     },
 
     config = function()
+        vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+            pattern = "*.component.html",
+            callback = function()
+                vim.bo.filetype = "angular.html"  -- Algunos temas tienen mejor soporte para este nombre
+            end
+        })
+
         require("conform").setup({
             formatters_by_ft = {
+                html = { "prettier" },
+                htmlangular = { "prettier" }, -- Añade esta línea específica
+                typescriptreact = { "prettier" },
+                typescript = { "prettier" },
+                javascript = { "prettier" },
+                javascriptreact = { "prettier" },
+                json = { "prettier" },
+                css = { "prettier" },
+                scss = { "prettier" },
             }
         })
         local cmp = require('cmp')
@@ -123,6 +139,14 @@ return {
                         end,
                     })
                 end,
+                angularls = function()
+                    vim.keymap.set("n", "<leader>fo", ":lua require('conform').format()<CR>")
+
+                    require("lspconfig").angularls.setup {
+                        on_attach = function(client, bufnr)
+                        end
+                    }
+                end
             }
         })
 
