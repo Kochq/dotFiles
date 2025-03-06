@@ -149,8 +149,8 @@ fi
 
 PATH="$HOME/Downloads/PhpStorm-232.10227.13/bin:$PATH"
 PATH="$HOME/dotFiles/myScripts/:$PATH"
-PATH="/usr/lib/jvm/java-17-openjdk/bin/:$PATH"
-export JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
+PATH="/usr/lib/jvm/java-21-openjdk/bin/:$PATH"
+export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
 
 
 # show the list of packages that need this package - depends mpv as example
@@ -208,3 +208,7 @@ eval "$(pyenv init -)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
