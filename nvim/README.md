@@ -1,155 +1,239 @@
-# Modos de vim
+# kickstart.nvim
 
-## Normal Mode
-Es el modo donde vamos a poder ejecutar comandos para movernos por el archivo, buscar, reemplazar, etc.
-- Entrar: <kbd>ESC</kbd> o <kbd>Ctrl</kbd> + <kbd>c</kbd>
+## Introduction
 
-## Insert Mode
-Es el modo donde vamos a poder escribir en el archivo, como en cualquier otro editor
-- Entrar: [Ver insertar](#Entrar-en-insert-mode)
+A starting point for Neovim that is:
 
-## Visual Mode
-Es el modo donde vamos a poder seleccionar texto para copiar, cortar, pegar, etc.
-- Entrar: [Ver visual](#Entrar-en-visual-mode)
+* Small
+* Single-file
+* Completely Documented
 
-## Command mode (?)
-Es el modo donde vamos a poder ejecutar comandos para guardar, salir, etc. [Ver comandos](#Guardar-salir)
-- Entrar: <kbd>:</kbd>
+**NOT** a Neovim distribution, but instead a starting point for your configuration.
+
+## Installation
+
+### Install Neovim
+
+Kickstart.nvim targets *only* the latest
+['stable'](https://github.com/neovim/neovim/releases/tag/stable) and latest
+['nightly'](https://github.com/neovim/neovim/releases/tag/nightly) of Neovim.
+If you are experiencing issues, please make sure you have the latest versions.
+
+### Install External Dependencies
+
+External Requirements:
+- Basic utils: `git`, `make`, `unzip`, C Compiler (`gcc`)
+- [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
+- Clipboard tool (xclip/xsel/win32yank or other depending on the platform)
+- A [Nerd Font](https://www.nerdfonts.com/): optional, provides various icons
+  - if you have it set `vim.g.have_nerd_font` in `init.lua` to true
+- Emoji fonts (Ubuntu only, and only if you want emoji!) `sudo apt install fonts-noto-color-emoji`
+- Language Setup:
+  - If you want to write Typescript, you need `npm`
+  - If you want to write Golang, you will need `go`
+  - etc.
+
+> **NOTE**
+> See [Install Recipes](#Install-Recipes) for additional Windows and Linux specific notes
+> and quick install snippets
+
+### Install Kickstart
+
+> **NOTE**
+> [Backup](#FAQ) your previous configuration (if any exists)
+
+Neovim's configurations are located under the following paths, depending on your OS:
+
+| OS | PATH |
+| :- | :--- |
+| Linux, MacOS | `$XDG_CONFIG_HOME/nvim`, `~/.config/nvim` |
+| Windows (cmd)| `%localappdata%\nvim\` |
+| Windows (powershell)| `$env:LOCALAPPDATA\nvim\` |
+
+#### Recommended Step
+
+[Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repo
+so that you have your own copy that you can modify, then install by cloning the
+fork to your machine using one of the commands below, depending on your OS.
+
+> **NOTE**
+> Your fork's URL will be something like this:
+> `https://github.com/<your_github_username>/kickstart.nvim.git`
+
+You likely want to remove `lazy-lock.json` from your fork's `.gitignore` file
+too - it's ignored in the kickstart repo to make maintenance easier, but it's
+[recommended to track it in version control](https://lazy.folke.io/usage/lockfile).
+
+#### Clone kickstart.nvim
+> **NOTE**
+> If following the recommended step above (i.e., forking the repo), replace
+> `nvim-lua` with `<your_github_username>` in the commands below
+
+<details><summary> Linux and Mac </summary>
+
+```sh
+git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+```
+
+</details>
+
+<details><summary> Windows </summary>
+
+If you're using `cmd.exe`:
+
+```
+git clone https://github.com/nvim-lua/kickstart.nvim.git "%localappdata%\nvim"
+```
+
+If you're using `powershell.exe`
+
+```
+git clone https://github.com/nvim-lua/kickstart.nvim.git "${env:LOCALAPPDATA}\nvim"
+```
+
+</details>
+
+### Post Installation
+
+Start Neovim
+
+```sh
+nvim
+```
+
+That's it! Lazy will install all the plugins you have. Use `:Lazy` to view
+the current plugin status. Hit `q` to close the window.
+
+#### Read The Friendly Documentation
+
+Read through the `init.lua` file in your configuration folder for more
+information about extending and exploring Neovim. That also includes
+examples of adding popularly requested plugins.
+
+> [!NOTE]
+> For more information about a particular plugin check its repository's documentation.
 
 
-# Comandos simples
+### Getting Started
 
-## Entrar en insert mode
-- <kbd>i</kbd>: Insertar texto antes del cursor.
-- <kbd>I</kbd>: Insertar texto al inicio de la linea.
-- <kbd>a</kbd>: Insertar texto despues del cursor.
-- <kbd>A</kbd>: Insertar texto al final de la linea.
-- <kbd>o</kbd>: Insertar una nueva linea debajo de la actual.
-- <kbd>O</kbd>: Insertar una nueva linea arriba de la actual.
+[The Only Video You Need to Get Started with Neovim](https://youtu.be/m8C0Cq9Uv9o)
 
-## Entrar en visual mode
-- <kbd>v</kbd>: Seleccionar texto.
-- <kbd>V</kbd>: Seleccionar linea.
-- <kbd>Ctrl</kbd> + <kbd>v</kbd>: Seleccionar bloques de texto.
+### FAQ
 
-## Movimiento horizontal
+* What should I do if I already have a pre-existing Neovim configuration?
+  * You should back it up and then delete all associated files.
+  * This includes your existing init.lua and the Neovim files in `~/.local`
+    which can be deleted with `rm -rf ~/.local/share/nvim/`
+* Can I keep my existing configuration in parallel to kickstart?
+  * Yes! You can use [NVIM_APPNAME](https://neovim.io/doc/user/starting.html#%24NVIM_APPNAME)`=nvim-NAME`
+    to maintain multiple configurations. For example, you can install the kickstart
+    configuration in `~/.config/nvim-kickstart` and create an alias:
+    ```
+    alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
+    ```
+    When you run Neovim using `nvim-kickstart` alias it will use the alternative
+    config directory and the matching local directory
+    `~/.local/share/nvim-kickstart`. You can apply this approach to any Neovim
+    distribution that you would like to try out.
+* What if I want to "uninstall" this configuration:
+  * See [lazy.nvim uninstall](https://lazy.folke.io/usage#-uninstalling) information
+* Why is the kickstart `init.lua` a single file? Wouldn't it make sense to split it into multiple files?
+  * The main purpose of kickstart is to serve as a teaching tool and a reference
+    configuration that someone can easily use to `git clone` as a basis for their own.
+    As you progress in learning Neovim and Lua, you might consider splitting `init.lua`
+    into smaller parts. A fork of kickstart that does this while maintaining the
+    same functionality is available here:
+    * [kickstart-modular.nvim](https://github.com/dam9000/kickstart-modular.nvim)
+  * Discussions on this topic can be found here:
+    * [Restructure the configuration](https://github.com/nvim-lua/kickstart.nvim/issues/218)
+    * [Reorganize init.lua into a multi-file setup](https://github.com/nvim-lua/kickstart.nvim/pull/473)
 
-### Moverse por el archivo
-- <kbd>h</kbd>: Moverse a la izquierda.
-- <kbd>l</kbd>: Moverse a la derecha.
+### Install Recipes
 
-### Moverse por palabras
+Below you can find OS specific install instructions for Neovim and dependencies.
 
-- <kbd>w</kbd>: Moverse al principio de la siguiente palabra.
-- <kbd>W</kbd>: Moverse al principio de la siguiente palabra ignorando signos de puntuacion.
-- <kbd>b</kbd>: Moverse al principio de la palabra anterior.
-- <kbd>B</kbd>: Moverse al principio de la palabra anterior ignorando signos de puntuacion.
-- <kbd>e</kbd>: Moverse al final de la palabra.
-- <kbd>E</kbd>: Moverse al final de la palabra ignorando signos de puntuacion.
+After installing all the dependencies continue with the [Install Kickstart](#Install-Kickstart) step.
 
-### Moverse por caracteres
-- <kbd>f</kbd> + <kbd>caracter</kbd>: Moverse al siguiente caracter.
-- <kbd>F</kbd> + <kbd>caracter</kbd>: Moverse al anterior caracter.
-- <kbd>t</kbd> + <kbd>caracter</kbd>: Moverse al caracter anterior al siguiente.
-- <kbd>T</kbd> + <kbd>caracter</kbd>: Moverse al caracter siguiente al anterior.
+#### Windows Installation
 
-### Moverse por la linea
-- <kbd>0</kbd>: Moverse al inicio de la linea.
-- <kbd>-</kbd>: Moverse al primer caracter de la linea.
-- <kbd>$</kbd>: Moverse al final de la linea.
+<details><summary>Windows with Microsoft C++ Build Tools and CMake</summary>
+Installation may require installing build tools and updating the run command for `telescope-fzf-native`
 
-## Movimiento vertical
+See `telescope-fzf-native` documentation for [more details](https://github.com/nvim-telescope/telescope-fzf-native.nvim#installation)
 
-### Moverse por el archivo
-- <kbd>j</kbd>: Moverse hacia abajo.
-- <kbd>k</kbd>: Moverse hacia arriba.
+This requires:
 
-### Moverse por el archivo
-- <kbd>gg</kbd>: Moverse al inicio del archivo.
-- <kbd>G</kbd>: Moverse al final del archivo.
-- <kbd>Ctrl</kbd> + <kbd>d</kbd>: Moverse hacia abajo por la mitad de la pantalla.
-- <kbd>Ctrl</kbd> + <kbd>u</kbd>: Moverse hacia arriba por la mitad de la pantalla.
+- Install CMake and the Microsoft C++ Build Tools on Windows
 
-### Moverse por parrafos
-- <kbd>}</kbd>: Moverse al final parrafo.
-- <kbd>{</kbd>: Moverse al inicio anterior.
+```lua
+{'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+```
+</details>
+<details><summary>Windows with gcc/make using chocolatey</summary>
+Alternatively, one can install gcc and make which don't require changing the config,
+the easiest way is to use choco:
 
-### Moverse por ( ) { } [ ]
-- <kbd>%</kbd>: Moverse al parentesis, llave o corchete correspondiente.
+1. install [chocolatey](https://chocolatey.org/install)
+either follow the instructions on the page or use winget,
+run in cmd as **admin**:
+```
+winget install --accept-source-agreements chocolatey.chocolatey
+```
 
-## Buscar
-- <kbd>/</kbd>: Buscar texto hacia adelante. 
-    - Presionar <kbd>n</kbd> para buscar la siguiente coincidencia. Presionar <kbd>N</kbd> para buscar la anterior coincidencia.
-- <kbd>*</kbd>: Buscar la palabra sobre el cursor.
-    - Presionar <kbd>n</kbd> para buscar la siguiente coincidencia. Presionar <kbd>N</kbd> para buscar la anterior coincidencia.
+2. install all requirements using choco, exit the previous cmd and
+open a new one so that choco path is set, and run in cmd as **admin**:
+```
+choco install -y neovim git ripgrep wget fd unzip gzip mingw make
+```
+</details>
+<details><summary>WSL (Windows Subsystem for Linux)</summary>
 
-## Reemplazar
-- <kbd>:</kbd> + <kbd>s</kbd>: Reemplazar la palabra actual.
-    - <kbd>g</kbd>: Reemplazar todas las ocurrencias en la linea.
-    - <kbd>c</kbd>: Preguntar antes de reemplazar.
+```
+wsl --install
+wsl
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
+sudo apt update
+sudo apt install make gcc ripgrep unzip git xclip neovim
+```
+</details>
 
-## Copiar, cortar, pegar (En [Visual Mode](#Entrar-en-visual-mode))
-- <kbd>y</kbd>: Copiar. [Ver copiar](#Yankcopiar)
-- <kbd>d</kbd>: Cortar. [Ver cortar](#Deletecortar)
-- <kbd>p</kbd>: Pegar despues del cursor.
-- <kbd>P</kbd>: Pegar antes del cursor.
+#### Linux Install
+<details><summary>Ubuntu Install Steps</summary>
 
-## Cambiar
-- <kbd>c</kbd>: Cambiar. [Ver cambiar](#Changecambiar)
+```
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
+sudo apt update
+sudo apt install make gcc ripgrep unzip git xclip neovim
+```
+</details>
+<details><summary>Debian Install Steps</summary>
 
-## Undo, Redo
-- <kbd>u</kbd>: Deshacer. <kbd>Ctrl</kbd> + <kbd>z</kbd>
-- <kbd>Ctrl</kbd> + <kbd>r</kbd>: Rehacer. <kbd>Ctrl</kbd> + <kbd>y</kbd>
+```
+sudo apt update
+sudo apt install make gcc ripgrep unzip git xclip curl
 
-## Guardar, Salir
-- <kbd>:</kbd> + <kbd>w</kbd>: Guardar.
-- <kbd>:</kbd> + <kbd>q</kbd>: Salir.
-- <kbd>:</kbd> + <kbd>wq</kbd>: Guardar y salir.
-- <kbd>:</kbd> + <kbd>q!</kbd>: Salir sin guardar.
+# Now we install nvim
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo mkdir -p /opt/nvim-linux-x86_64
+sudo chmod a+rX /opt/nvim-linux-x86_64
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
 
-## Identar
-- <kbd>></kbd>: Identar.
-- <kbd><</kbd>: Desidentar.
-- <kbd>=</kbd>: Identar automaticamente.
+# make it available in /usr/local/bin, distro installs to /usr/bin
+sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/
+```
+</details>
+<details><summary>Fedora Install Steps</summary>
 
-# Comandos compuestos
+```
+sudo dnf install -y gcc make git ripgrep fd-find unzip neovim
+```
+</details>
 
-## Yank/copiar
-(En [Normal Mode](#Normal-Mode))
-- <kbd>y</kbd> + <kbd>y</kbd>: Copiar una linea.
-    - Cuando pegue la linea, se pegara debajo del cursor (Con p) o arriba del cursor (Con P).
-- <kbd>y</kbd> + <kbd>w</kbd>: Copiar una palabra.
-- <kbd>y</kbd> + <kbd>$</kbd>: Copiar hasta el final de la linea.
-- <kbd>y</kbd> + <kbd>a</kbd> + <kbd>p</kbd>: Copiar un parrafo.
-- <kbd>y</kbd> + <kbd>i</kbd> + <kbd>"</kbd>: Copiar entre comillas.
-- <kbd>y</kbd> + <kbd>i</kbd> + <kbd>(</kbd>: Copiar entre parentesis.
-- <kbd>y</kbd> + <kbd>i</kbd> + <kbd>W</kbd>: Copiar desde el " " hasta el " "
+<details><summary>Arch Install Steps</summary>
 
-## Delete/cortar
-(En [Normal Mode](#Normal-Mode))
-- <kbd>d</kbd> + <kbd>d</kbd>: Cortar una linea.
-    - Cuando pegue la linea, se pegara debajo del cursor (Con p) o arriba del cursor (Con P).
-- <kbd>d</kbd> + <kbd>w</kbd>: Cortar una palabra.
-- <kbd>d</kbd> + <kbd>$</kbd>: Cortar hasta el final de la linea.
-- <kbd>d</kbd> + <kbd>a</kbd> + <kbd>p</kbd>: Cortar un parrafo.
-- <kbd>d</kbd> + <kbd>i</kbd> + <kbd>"</kbd>: Cortar entre comillas.
-- <kbd>d</kbd> + <kbd>i</kbd> + <kbd>(</kbd>: Cortar entre parentesis.
+```
+sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim
+```
+</details>
 
-## Change/cambiar
-(En [Normal Mode](#Normal-Mode))
-- <kbd>c</kbd> + <kbd>c</kbd>: Cambiar una linea.
-    - Cuando pegue la linea, se pegara debajo del cursor (Con p) o arriba del cursor (Con P).
-- <kbd>c</kbd> + <kbd>w</kbd>: Cambiar una palabra.
-- <kbd>c</kbd> + <kbd>$</kbd>: Cambiar hasta el final de la linea.
-- <kbd>c</kbd> + <kbd>i</kbd> + <kbd>"</kbd>: Cambiar entre comillas.
-- <kbd>c</kbd> + <kbd>i</kbd> + <kbd>(</kbd>: Cambiar entre parentesis.
-
-## Comandos con movimiento
-- <kbd>comando</kbd> + <kbd>movimiento</kbd>: Ejecutar el comando con el movimiento como argumento.
-    - Ejemplo: <kbd>y</kbd> + <kbd>w</kbd>: Copiar una palabra.
-    - Ejemplo: <kbd>d</kbd> + <kbd>f</kbd> + <kbd>(</kbd>: Cortar hasta el caracter "(" (Incluyendo el parentesis).
-
-## Comandos con numeros
-- <kbd>n</kbd> + <kbd>comando</kbd>: Ejecutar el comando n veces.
-    - Ejemplo: <kbd>3</kbd> + <kbd>j</kbd>: Moverse 3 lineas hacia abajo.
-    - Ejemplo: <kbd>3</kbd> + <kbd>d</kbd> + <kbd>w</kbd>: Cortar 3 palabras.

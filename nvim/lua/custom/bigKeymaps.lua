@@ -58,3 +58,4 @@ vim.api.nvim_exec([[
   autocmd BufEnter * lua SetKeyBindings()
   augroup END
 ]], false)
+
