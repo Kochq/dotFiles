@@ -510,7 +510,17 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         gopls = {},
+        ts_ls = {},
         pyright = {},
+        angularls = {
+          root_dir = require('lspconfig').util.root_pattern('angular.json', 'project.json'),
+          capabilities = capabilities,
+          on_attach = function(client, bufnr)
+            if vim.fn.expand '%:e' == 'html' then
+              vim.bo[bufnr].filetype = 'angular.html'
+            end
+          end,
+        },
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -570,11 +580,14 @@ require('lazy').setup({
           end,
         },
       }
+
       -- Configuración directa de JDTLS
       local home = os.getenv 'HOME'
-      local workspace_folder = home .. '/.cache/jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-      vim.fn.mkdir(workspace_folder, 'p')
-      local lombok_jar = vim.fn.glob(os.getenv 'HOME' .. '/.m2/repository/org/projectlombok/lombok/*/lombok-*.jar')
+      local workspace_jdtls_folder = home .. '/.cache/jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+      vim.fn.mkdir(workspace_jdtls_folder, 'p')
+
+      -- Ruta exacta al jar de Lombok
+      local lombok_path = home .. '/.local/share/nvim/lombok/lombok.jar'
 
       require('lspconfig').jdtls.setup {
         cmd = {
@@ -583,18 +596,18 @@ require('lazy').setup({
           '-Dosgi.bundles.defaultStartLevel=4',
           '-Declipse.product=org.eclipse.jdt.ls.core.product',
           '-Xms1g',
+          '-javaagent:' .. lombok_path, -- Usar esta versión específica de Lombok
           '--add-modules=ALL-SYSTEM',
           '--add-opens',
           'java.base/java.util=ALL-UNNAMED',
           '--add-opens',
           'java.base/java.lang=ALL-UNNAMED',
-          '-javaagent:' .. lombok_jar, -- Agregar Lombok como agente Java
           '-jar',
           vim.fn.glob(home .. '/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar'),
           '-configuration',
           home .. '/.local/share/nvim/mason/packages/jdtls/config_linux',
           '-data',
-          workspace_folder,
+          workspace_jdtls_folder,
         },
         root_dir = function(fname)
           return require('lspconfig.util').root_pattern('.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle')(fname)
@@ -625,24 +638,17 @@ require('lazy').setup({
             },
           },
         },
+        init_options = {
+          bundles = { lombok_path }, -- Intentar también como bundle
+        },
         on_attach = function(client, bufnr)
           -- Configurar atajos de teclado específicos para Java
           local opts = { noremap = true, silent = true, buffer = bufnr }
-          vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-          vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-          vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
           vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
           vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
           vim.keymap.set('n', '<leader>wl', function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
           end, opts)
-          vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
-          vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-          vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-          vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-
           print('JDTLS conectado al buffer ' .. bufnr)
         end,
       }
@@ -904,7 +910,23 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = {
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'typescript',
+        'javascript',
+        'tsx',
+        'angular',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
