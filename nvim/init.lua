@@ -521,6 +521,7 @@ require('lazy').setup({
             end
           end,
         },
+        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -580,75 +581,6 @@ require('lazy').setup({
           end,
         },
       }
-
-      -- Configuración directa de JDTLS
-      local home = os.getenv 'HOME'
-      local workspace_jdtls_folder = home .. '/.cache/jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-      vim.fn.mkdir(workspace_jdtls_folder, 'p')
-
-      -- Ruta exacta al jar de Lombok
-      local lombok_path = home .. '/.local/share/nvim/lombok/lombok.jar'
-
-      require('lspconfig').jdtls.setup {
-        cmd = {
-          'java',
-          '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-          '-Dosgi.bundles.defaultStartLevel=4',
-          '-Declipse.product=org.eclipse.jdt.ls.core.product',
-          '-Xms1g',
-          '-javaagent:' .. lombok_path, -- Usar esta versión específica de Lombok
-          '--add-modules=ALL-SYSTEM',
-          '--add-opens',
-          'java.base/java.util=ALL-UNNAMED',
-          '--add-opens',
-          'java.base/java.lang=ALL-UNNAMED',
-          '-jar',
-          vim.fn.glob(home .. '/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar'),
-          '-configuration',
-          home .. '/.local/share/nvim/mason/packages/jdtls/config_linux',
-          '-data',
-          workspace_jdtls_folder,
-        },
-        root_dir = function(fname)
-          return require('lspconfig.util').root_pattern('.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle')(fname)
-        end,
-        capabilities = vim.tbl_deep_extend('force', vim.lsp.protocol.make_client_capabilities(), require('cmp_nvim_lsp').default_capabilities()),
-        settings = {
-          java = {
-            signatureHelp = { enabled = true },
-            contentProvider = { preferred = 'fernflower' },
-            completion = {
-              favoriteStaticMembers = {
-                'org.junit.jupiter.api.Assertions.*',
-                'java.util.Objects.requireNonNull',
-                'java.util.Objects.requireNonNullElse',
-              },
-            },
-            configuration = {
-              updateBuildConfiguration = 'interactive',
-            },
-            maven = {
-              downloadSources = true,
-            },
-            implementationsCodeLens = {
-              enabled = true,
-            },
-            referencesCodeLens = {
-              enabled = true,
-            },
-          },
-        },
-        init_options = {
-          bundles = { lombok_path }, -- Intentar también como bundle
-        },
-        on_attach = function(client, bufnr)
-          -- Configurar atajos de teclado específicos para Java
-          local opts = { noremap = true, silent = true, buffer = bufnr }
-          vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
-          vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
-          vim.keymap.set('n', '<leader>wl', function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-          end, opts)
           print('JDTLS conectado al buffer ' .. bufnr)
         end,
       }
