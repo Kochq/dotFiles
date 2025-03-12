@@ -404,6 +404,8 @@ require('lazy').setup({
           -- or a suggestion from your LSP for this to activate.
           map('<leader>vca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
 
+          map('<leader>vd', vim.diagnostic.open_float, '[V]iew [D]ou', { 'n', 'x' })
+
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -521,16 +523,6 @@ require('lazy').setup({
             end
           end,
         },
-        pyright = {},
-        angularls = {
-          root_dir = require('lspconfig').util.root_pattern('angular.json', 'project.json'),
-          capabilities = capabilities,
-          on_attach = function(client, bufnr)
-            if vim.fn.expand '%:e' == 'html' then
-              vim.bo[bufnr].filetype = 'angular.html'
-            end
-          end,
-        },
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -590,6 +582,7 @@ require('lazy').setup({
           end,
         },
       }
+
       -- Configuración directa de JDTLS
       local home = os.getenv 'HOME'
       local workspace_jdtls_folder = home .. '/.cache/jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
@@ -893,24 +886,6 @@ require('lazy').setup({
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
-
-      -- Simple and easy statusline.
-      --  You could remove this setup call if you don't like it,
-      --  and try some other statusline plugin
-      local statusline = require 'mini.statusline'
-      -- set use_icons to true if you have a Nerd Font
-      statusline.setup { use_icons = vim.g.have_nerd_font }
-
-      -- You can configure sections in the statusline by overriding their
-      -- default behavior. For example, here we set the section for
-      -- cursor location to LINE:COLUMN
-      ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_location = function()
-        return '%2l:%-2v'
-      end
-
-      -- ... and there is more!
-      --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
   { -- Highlight, edit, and navigate code
@@ -972,12 +947,13 @@ require('lazy').setup({
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
   require 'custom.plugins.cloak',
   require 'custom.plugins.colorizer',
-  --require 'custom.plugins.copilot',
+  require 'custom.plugins.copilot',
   require 'custom.plugins.fugitive',
   require 'custom.plugins.lazygit',
   require 'custom.plugins.lluvia',
   require 'custom.plugins.undotree',
   require 'custom.plugins.harpoon',
+  require 'custom.plugins.lualine',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
