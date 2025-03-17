@@ -21,7 +21,7 @@ background = "#3e4451"
 text = "CellForeground"
 
 [font]
-size = 14
+size = 19
 
 [font.bold]
 family = "CaskaydiaCove Nerd Font Mono"
