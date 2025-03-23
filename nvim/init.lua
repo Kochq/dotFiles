@@ -932,7 +932,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
   require 'custom.plugins.cloak',
   require 'custom.plugins.colorizer',
-  --require 'custom.plugins.copilot',
+  require 'custom.plugins.copilot',
   require 'custom.plugins.fugitive',
   require 'custom.plugins.lazygit',
   require 'custom.plugins.lluvia',
