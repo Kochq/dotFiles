@@ -1,0 +1,8 @@
+#!/bin/sh
+sudo ntpd -qg
+xrandr --output DP-1 --primary --mode 2560x1440 --pos 1920x0 --rotate normal --rate 180 --output DisplayPort-1 --off --output DisplayPort-2 --off --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal --rate 144
+xinput --set-prop 'pointer:''Logitech G203 LIGHTSYNC Gaming Mouse' 'libinput Accel Profile Enabled' 0, 1
+xinput --set-prop 'pointer:''Logitech G203 LIGHTSYNC Gaming Mouse' 'libinput Accel Speed' 0.0
+setxkbmap -option caps:ctrl_modifier
+setxkbmap us
+xset r rate 400 40
