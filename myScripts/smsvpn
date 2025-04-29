@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Ruta al archivo de la contraseña
+PASSWORD_FILE="$HOME/vpn-creds"
+
+# Verificar que existe el archivo de contraseña
+if [ ! -f "$PASSWORD_FILE" ]; then
+    echo "Error: No se encontró el archivo de contraseña en $PASSWORD_FILE"
+    exit 1
+fi
+
+# Usar argumentos para usuario y grupo
+sudo openconnect --protocol=anyconnect \
+    --user="mkoch" \
+    --authgroup="Arg-Anyconnect" \
+    --passwd-on-stdin \
+    vpn.sms-sudamerica.com < "$PASSWORD_FILE"
