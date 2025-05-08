@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# @raycast.schemaVersion 1
+# @raycast.title SmsVpn
+# @raycast.mode fullOutput
+# @raycast.icon 🛜
+# @raycast.packageName EditSoftware
+
 # Ruta al archivo de la contraseña
 PASSWORD_FILE="$HOME/vpn-creds"
 

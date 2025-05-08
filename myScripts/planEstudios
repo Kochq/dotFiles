@@ -1,1 +1,10 @@
-mupdf -W 1000 /home/koch/Workspace/unnoba/assets/img/planEstudios.png
+#!/bin/bash
+
+# @raycast.schemaVersion 1
+# @raycast.title PlanEstudios
+# @raycast.mode silent
+# @raycast.icon 🗓️
+# @raycast.packageName Unnoba
+
+
+open -a Preview /Users/koch/Workspace/unnoba/assets/img/planEstudios.png
