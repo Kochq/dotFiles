@@ -1,0 +1,29 @@
+{
+  "title": "Caps Lock como Control en Ghostty",
+  "rules": [
+    {
+      "description": "Caps Lock a Control en Ghostty, Command en otras apps",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command"
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

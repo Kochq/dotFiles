@@ -1,0 +1,5 @@
+# Elimina la acción de copiar con Cmd+C
+keybind = "super+c="
+
+# Asigna Cmd+C para enviar Ctrl+C (SIGINT)
+keybind = "super+c=text:\x03"
