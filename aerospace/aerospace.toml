@@ -1,15 +1,3 @@
-# Run Sketchybar together with AeroSpace
-# sketchbar has a built-in detection of already running process,
-# so it won't be run twice on AeroSpace restart
-after-startup-command = ['exec-and-forget sketchybar']
-
-# Notify Sketchybar about workspace change
-exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
-]
-
-# After that, you can edit ~/.aerospace.toml to your liking
-
 # You can use it to add commands that run after login to macOS user session.
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
@@ -122,14 +110,14 @@ automatically-unhide-macos-hidden-apps = false
     alt-equal = 'resize smart +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-    alt-q = 'workspace 1'
-    alt-w = 'workspace 2'
-    alt-e = 'workspace 3'
-    alt-r = 'workspace 4'
-    alt-u = 'workspace 5'
-    alt-i = 'workspace 6'
-    alt-o = 'workspace 7'
-    alt-p = 'workspace 8'
+    alt-q = 'summon-workspace 1'
+    alt-w = 'summon-workspace 2'
+    alt-e = 'summon-workspace 3'
+    alt-r = 'summon-workspace 4'
+    alt-u = 'summon-workspace 5'
+    alt-i = 'summon-workspace 6'
+    alt-o = 'summon-workspace 7'
+    alt-p = 'summon-workspace 8'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-q = 'move-node-to-workspace 1'

@@ -13,7 +13,7 @@ white = "#828997"
 yellow = "#e5c07b"
 
 [colors.primary]
-background = "#000000"
+background = "#1C1C1C"
 foreground = "#abb2bf"
 
 [colors.selection]
@@ -37,7 +37,137 @@ style = "Italic"
 
 [font.normal]
 family = "CaskaydiaCove Nerd Font Mono"
-style = "Book"
+style = "Regular"
 
 [window]
-opacity = 0.8
+opacity = 1.0
+
+[[keyboard.bindings]]
+key = "A"
+mods = "Command"
+chars = "\u0001"
+
+[[keyboard.bindings]]
+key = "B"
+mods = "Command"
+chars = "\u0002"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Command"
+chars = "\u0003"
+
+[[keyboard.bindings]]
+key = "D"
+mods = "Command"
+chars = "\u0004"
+
+[[keyboard.bindings]]
+key = "E"
+mods = "Command"
+chars = "\u0005"
+
+[[keyboard.bindings]]
+key = "F"
+mods = "Command"
+chars = "\u0006"
+
+[[keyboard.bindings]]
+key = "G"
+mods = "Command"
+chars = "\u0007"
+
+[[keyboard.bindings]]
+key = "H"
+mods = "Command"
+chars = "\u0008"
+
+[[keyboard.bindings]]
+key = "I"
+mods = "Command"
+chars = "\u0009"
+
+[[keyboard.bindings]]
+key = "J"
+mods = "Command"
+chars = "\u000A"
+
+[[keyboard.bindings]]
+key = "K"
+mods = "Command"
+chars = "\u000B"
+
+[[keyboard.bindings]]
+key = "L"
+mods = "Command"
+chars = "\u000C"
+
+[[keyboard.bindings]]
+key = "M"
+mods = "Command"
+chars = "\u000D"
+
+[[keyboard.bindings]]
+key = "N"
+mods = "Command"
+chars = "\u000E"
+
+[[keyboard.bindings]]
+key = "O"
+mods = "Command"
+chars = "\u000F"
+
+[[keyboard.bindings]]
+key = "P"
+mods = "Command"
+chars = "\u0010"
+
+[[keyboard.bindings]]
+key = "Q"
+mods = "Command"
+chars = "\u0011"
+
+[[keyboard.bindings]]
+key = "R"
+mods = "Command"
+chars = "\u0012"
+
+[[keyboard.bindings]]
+key = "S"
+mods = "Command"
+chars = "\u0013"
+
+[[keyboard.bindings]]
+key = "T"
+mods = "Command"
+chars = "\u0014"
+
+[[keyboard.bindings]]
+key = "U"
+mods = "Command"
+chars = "\u0015"
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Command"
+chars = "\u0016"
+
+[[keyboard.bindings]]
+key = "W"
+mods = "Command"
+chars = "\u0017"
+
+[[keyboard.bindings]]
+key = "X"
+mods = "Command"
+chars = "\u0018"
+
+[[keyboard.bindings]]
+key = "Y"
+mods = "Command"
+chars = "\u0019"
+
+[[keyboard.bindings]]
+key = "Z"
+mods = "Command"
+chars = "\u001A"
