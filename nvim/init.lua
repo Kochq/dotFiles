@@ -240,6 +240,13 @@ require('lazy').setup({
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
       require('telescope').setup {
+        defaults = {
+          -- See `:help telescope.defaults`
+          prompt_prefix = ' ',
+          selection_caret = ' ',
+          file_ignore_patterns = { 'node_modules', '.git', '.cache' },
+          scroll_strategy = 'cycle',
+        },
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
