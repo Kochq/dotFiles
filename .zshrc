@@ -3,7 +3,12 @@
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export ANDROID_HOME="$HOME/Library/Android/sdk"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
 #installation via paru -S oh-my-zsh-git
 
 # Set name of the theme to load --- if set to "random", it will
@@ -135,7 +140,7 @@ fi
 PATH="$HOME/Downloads/PhpStorm-232.10227.13/bin:$PATH"
 PATH="$HOME/dotFiles/myScripts/:$PATH"
 PATH="/usr/lib/jvm/java-21-openjdk/bin/:$PATH"
-export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
+# export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
 
 
 # show the list of packages that need this package - depends mpv as example
