@@ -165,3 +165,8 @@ automatically-unhide-macos-hidden-apps = false
         run= [
             "layout floating",
         ]
+[[on-window-detected]]
+    if.app-id="com.apple.Preview"
+        run= [
+            "layout floating",
+        ]
