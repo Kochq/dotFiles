@@ -9,6 +9,8 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
+
+export DISABLE_AUTO_TITLE="true"
 #installation via paru -S oh-my-zsh-git
 
 # Set name of the theme to load --- if set to "random", it will
@@ -188,9 +190,14 @@ alias diavlo="ascii-image-converter Downloads/diavlo.webp"
 alias config="/usr/bin/git --git-dir=$HOME/dotFiles --work-tree=$HOME"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# LAZY LOADING OPTIMIZATIONS
 export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+export PATH="$PYENV_ROOT/bin:$PATH"
+pyenv() {
+  eval "$(command pyenv init -)"
+  pyenv "$@"
+}
 
 # bun completions
 [ -s "/home/koch/.bun/_bun" ] && source "/home/koch/.bun/_bun"
@@ -199,9 +206,13 @@ eval "$(pyenv init -)"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
+# Angular CLI lazy loading
+ng() {
+  if ! complete -p ng >/dev/null 2>&1; then
+    source <(command ng completion script)
+  fi
+  command ng "$@"
+}
 
 # pnpm
 export PNPM_HOME="/home/koch/.local/share/pnpm"
@@ -211,6 +222,13 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# NVM lazy loading
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="$NVM_DIR:$PATH"
+nvm() {
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  nvm "$@"
+}
+node() { nvm >/dev/null 2>&1; command node "$@"; }
+npm() { nvm >/dev/null 2>&1; command npm "$@"; }
