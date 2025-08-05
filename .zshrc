@@ -4,7 +4,7 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export ANDROID_HOME=$HOME/Library/Android/sdk
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools
@@ -232,3 +232,5 @@ nvm() {
 }
 node() { nvm >/dev/null 2>&1; command node "$@"; }
 npm() { nvm >/dev/null 2>&1; command npm "$@"; }
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
