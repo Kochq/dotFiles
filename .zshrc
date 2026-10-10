@@ -142,6 +142,7 @@ fi
 PATH="$HOME/Downloads/PhpStorm-232.10227.13/bin:$PATH"
 PATH="$HOME/dotFiles/myScripts/:$PATH"
 PATH="/usr/lib/jvm/java-21-openjdk/bin/:$PATH"
+PATH="$HOME/.platformio/penv/bin:$PATH"
 # export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
 
 
@@ -169,10 +170,8 @@ function_depends()  {
 #cpufetch
 #colorscript random
 
-alias ls="lsd"
-alias ll="lsd -l"
-alias cat="bat"
-alias v="nvim ."
+alias ll="ls -l"
+alias v="nvim ./"
 alias cdf='cd $(fd --type d --hidden | fzf)'
 alias pj='tmux new-session ~/dotFiles/myScripts/tmux-sessionizer'
 alias vf='nvim $(fd --type f --hidden | fzf)'

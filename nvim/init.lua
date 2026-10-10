@@ -495,19 +495,15 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
-        gopls = {},
+        clangd = {
+          cmd = {
+            'clangd',
+            '--background-index',
+            '--query-driver=' .. vim.fn.expand '~/.platformio/packages/toolchain-xtensa-esp32/bin/xtensa-esp32-elf-g++',
+          },
+        },
         ts_ls = {},
         pyright = {},
-        angularls = {
-          root_dir = require('lspconfig').util.root_pattern('angular.json', 'project.json'),
-          capabilities = capabilities,
-          on_attach = function(client, bufnr)
-            if vim.fn.expand '%:e' == 'html' then
-              vim.bo[bufnr].filetype = 'angular.html'
-            end
-          end,
-        },
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -553,91 +549,14 @@ require('lazy').setup({
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+      for server_name, server in pairs(servers) do
+        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+
+        vim.lsp.config(server_name, server)
+      end
+
       require('mason-lspconfig').setup {
-        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-        automatic_installation = false,
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for ts_ls)
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
-          end,
-        },
-      }
-
-      -- Configuración directa de JDTLS
-      local home = os.getenv 'HOME'
-      local workspace_jdtls_folder = home .. '/.cache/jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-      vim.fn.mkdir(workspace_jdtls_folder, 'p')
-
-      -- Ruta exacta al jar de Lombok
-      local lombok_path = home .. '/.local/share/nvim/lombok/lombok.jar'
-
-      require('lspconfig').jdtls.setup {
-        cmd = {
-          'java',
-          '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-          '-Dosgi.bundles.defaultStartLevel=4',
-          '-Declipse.product=org.eclipse.jdt.ls.core.product',
-          '-Xms1g',
-          '-javaagent:' .. lombok_path, -- Usar esta versión específica de Lombok
-          '--add-modules=ALL-SYSTEM',
-          '--add-opens',
-          'java.base/java.util=ALL-UNNAMED',
-          '--add-opens',
-          'java.base/java.lang=ALL-UNNAMED',
-          '-jar',
-          vim.fn.glob(home .. '/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar'),
-          '-configuration',
-          home .. '/.local/share/nvim/mason/packages/jdtls/config_linux',
-          '-data',
-          workspace_jdtls_folder,
-        },
-        root_dir = function(fname)
-          return require('lspconfig.util').root_pattern('.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle')(fname)
-        end,
-        capabilities = vim.tbl_deep_extend('force', vim.lsp.protocol.make_client_capabilities(), require('cmp_nvim_lsp').default_capabilities()),
-        settings = {
-          java = {
-            signatureHelp = { enabled = true },
-            contentProvider = { preferred = 'fernflower' },
-            completion = {
-              favoriteStaticMembers = {
-                'org.junit.jupiter.api.Assertions.*',
-                'java.util.Objects.requireNonNull',
-                'java.util.Objects.requireNonNullElse',
-              },
-            },
-            configuration = {
-              updateBuildConfiguration = 'interactive',
-            },
-            maven = {
-              downloadSources = true,
-            },
-            implementationsCodeLens = {
-              enabled = true,
-            },
-            referencesCodeLens = {
-              enabled = true,
-            },
-          },
-        },
-        init_options = {
-          bundles = { lombok_path }, -- Intentar también como bundle
-        },
-        on_attach = function(client, bufnr)
-          -- Configurar atajos de teclado específicos para Java
-          local opts = { noremap = true, silent = true, buffer = bufnr }
-          vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
-          vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
-          vim.keymap.set('n', '<leader>wl', function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-          end, opts)
-          print('JDTLS conectado al buffer ' .. bufnr)
-        end,
+        automatic_enable = true,
       }
     end,
   },
@@ -883,7 +802,6 @@ require('lazy').setup({
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
       ensure_installed = {},
@@ -923,7 +841,6 @@ require('lazy').setup({
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
   require 'custom.plugins.cloak',
   require 'custom.plugins.colorizer',
-  require 'custom.plugins.copilot',
   require 'custom.plugins.fugitive',
   require 'custom.plugins.lazygit',
   require 'custom.plugins.lluvia',
